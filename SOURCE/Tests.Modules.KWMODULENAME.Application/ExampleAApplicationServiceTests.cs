@@ -5,6 +5,7 @@ using App.Modules.Sys.Infrastructure.Services;
 using App.Modules.Sys.Shared.Domains.Diagnostics;
 using App.Modules.Sys.Shared.Repositories;
 using NSubstitute;
+using App.Modules.Sys.Shared.Domains.Indexes;
 
 namespace Tests.Modules.KWMODULENAME.Application
 {
@@ -37,10 +38,10 @@ namespace Tests.Modules.KWMODULENAME.Application
 		{
 			// Arrange
 			var entities = new List<ExampleA>().AsQueryable();
-			var expectedDtos = new List<ExampleADto>().AsQueryable();
+			var expectedDtos = new List<ExampleAReadDto>().AsQueryable();
 			this._repository.Query().Returns(entities);
 			this._mapper
-				.ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>())
+				.ProjectTo<ExampleA, ExampleAReadDto>(Arg.Any<IQueryable<ExampleA>>())
 				.Returns(expectedDtos);
 
 			// Act
@@ -49,19 +50,19 @@ namespace Tests.Modules.KWMODULENAME.Application
 			// Assert
 			Assert.NotNull(result);
 			this._mapper.Received(1)
-				.ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>());
+				.ProjectTo<ExampleA, ExampleAReadDto>(Arg.Any<IQueryable<ExampleA>>());
 		}
 
 		[Fact]
 		public void WhenQueryByIdCalled_ThenProjectToIsInvokedOnce()
 		{
 			// Arrange
-			var id = Guid.NewGuid();
+			var id = UUIDFactory.NewGuid();
 			var entities = new List<ExampleA>().AsQueryable();
-			var expectedDtos = new List<ExampleADto>().AsQueryable();
+			var expectedDtos = new List<ExampleAReadDto>().AsQueryable();
 			this._repository.QueryById(id).Returns(entities);
 			this._mapper
-				.ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>())
+				.ProjectTo<ExampleA, ExampleAReadDto>(Arg.Any<IQueryable<ExampleA>>())
 				.Returns(expectedDtos);
 
 			// Act
@@ -70,7 +71,7 @@ namespace Tests.Modules.KWMODULENAME.Application
 			// Assert
 			Assert.NotNull(result);
 			this._mapper.Received(1)
-				.ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>());
+				.ProjectTo<ExampleA, ExampleAReadDto>(Arg.Any<IQueryable<ExampleA>>());
 		}
 
 		[Fact]

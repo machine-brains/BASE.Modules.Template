@@ -5,7 +5,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Constants
     /// for database schema field (column) names.
     /// to avoid reliance on magic strings.
     /// </summary>
-    public static class DbSchemaFieldNamesConstants
+    public static class DbSchemaFieldNameConstants
     {
 
     }

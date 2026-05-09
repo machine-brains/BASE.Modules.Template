@@ -12,7 +12,7 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
     /// <remarks>
     /// <para>
     /// Inherits standard CRUST endpoints from
-    /// <see cref="SimpleCrudStateControllerBase{TDto}"/>:
+    /// <see cref="CrudStateControllerBase{TReadDto,TCreateDto,TUpdateDto}"/>:
     /// <list type="bullet">
     ///   <item><c>GET</c> - all entities with OData query support.</item>
     ///   <item><c>GET {id}</c> - single entity by identifier.</item>
@@ -36,16 +36,18 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
     /// extending constants defined in this LM's Shared project,
     /// extending constants defined in App.Modules.Sys.Shared assembly
     /// </para>
-    /// <para>
-    /// IMPORTANT:
-    /// Controllers *must* inherit from
-    /// <see cref="SimpleCrudStateControllerBase{TEntityDto}"/>
-    /// or the slightly more complex
-    /// <see cref="CrudStateControllerBase{TReadDto, TCreateDto, TUpdateDto}"/>
-    /// </para>
-    /// </remarks>
-    [Route(ApiRoutes.Rest.V1.ExampleAs.Base)]
-	public class ExampleAController : SimpleCrudStateControllerBase<ExampleADto>
+	/// <para>
+	/// IMPORTANT:
+	/// Controllers *must* inherit from
+	/// <see cref="SimpleCrudStateControllerBase{TEntityDto}"/> for entities where a single DTO
+	/// suffices for all operations, or the split
+	/// <see cref="CrudStateControllerBase{TReadDto, TCreateDto, TUpdateDto}"/>
+	/// when read and write shapes are distinct (the canonical pattern for entities with
+	/// FK-backed reference-data navigation — see <see cref="ExampleAReadDto"/>).
+	/// </para>
+	/// </remarks>
+	[Route(ApiRoutes.Rest.V1.ExampleAs.Base)]
+	public class ExampleAController : CrudStateControllerBase<ExampleAReadDto, ExampleAWriteDto, ExampleAWriteDto>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ExampleAController"/> class.

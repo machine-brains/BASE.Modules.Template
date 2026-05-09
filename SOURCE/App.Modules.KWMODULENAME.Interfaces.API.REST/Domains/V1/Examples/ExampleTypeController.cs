@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
 {
     /// <summary>
-    /// REST controller for <see cref="ExampleTypeDto"/> CRUST operations.
+    /// REST controller for <see cref="ExampleTypeReadDto"/> CRUST operations.
     /// Provides: GET all, GET by id, GET by key, POST, PUT, PATCH state, PATCH record-state.
     /// </summary>
     /// <remarks>
@@ -30,7 +30,7 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
     /// </para>
     /// </remarks>
     [Route(ApiRoutes.Rest.V1.ExampleTypes.Base)]
-	public class ExampleTypeController : SimpleCrudStateControllerBase<ExampleTypeDto>, IHasScopedController
+	public class ExampleTypeController : SimpleCrudStateControllerBase<ExampleTypeReadDto>, IHasScopedController
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ExampleTypeController"/> class.

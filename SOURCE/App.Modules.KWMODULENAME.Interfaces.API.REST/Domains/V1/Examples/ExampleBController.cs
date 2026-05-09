@@ -13,7 +13,7 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
     /// <remarks>
     /// <para>
     /// Inherits standard CRUST endpoints from
-    /// <see cref="SimpleCrudStateControllerBase{TDto}"/>:
+    /// <see cref="CrudStateControllerBase{TReadDto,TCreateDto,TUpdateDto}"/>:
     /// <list type="bullet">
     ///   <item><c>GET</c> - all entities with OData query support.</item>
     ///   <item><c>GET {id}</c> - single entity by identifier.</item>
@@ -47,7 +47,7 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
     /// </para>
     /// </remarks>
     [Route(ApiRoutes.Rest.V1.ExampleBs.Base)]
-	public class ExampleBController : SimpleCrudStateControllerBase<ExampleBDto>
+	public class ExampleBController : CrudStateControllerBase<ExampleBReadDto, ExampleBWriteDto, ExampleBWriteDto>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ExampleBController"/> class.
@@ -68,3 +68,4 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
         }
     }
 }
+

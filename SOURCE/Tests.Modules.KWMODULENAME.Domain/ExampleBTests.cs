@@ -1,4 +1,5 @@
 using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
+using App.Modules.Sys.Shared.Domains.Indexes;
 
 namespace Tests.Modules.KWMODULENAME.Domain
 {
@@ -53,7 +54,7 @@ namespace Tests.Modules.KWMODULENAME.Domain
 		{
 			// Arrange
 			var entity = new ExampleB();
-			var parentId = Guid.NewGuid();
+			var parentId = UUIDFactory.NewGuid();
 
 			// Act
 			entity.ExampleAId = parentId;

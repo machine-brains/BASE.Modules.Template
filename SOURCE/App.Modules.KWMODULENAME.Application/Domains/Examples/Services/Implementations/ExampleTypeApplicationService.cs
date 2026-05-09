@@ -19,7 +19,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
     /// state management following our IQueryable-based repository patterns.
     /// </remarks>
     public class ExampleTypeApplicationService
-		: SimpleCrustStateAppServiceBase<ExampleType, ExampleTypeDto>, IExampleTypeApplicationService
+		: SimpleCrustStateAppServiceBase<ExampleType, ExampleTypeReadDto>, IExampleTypeApplicationService
 	{
         /// <summary>
         /// Initializes a new instance of the <see cref="ExampleTypeApplicationService"/> class.

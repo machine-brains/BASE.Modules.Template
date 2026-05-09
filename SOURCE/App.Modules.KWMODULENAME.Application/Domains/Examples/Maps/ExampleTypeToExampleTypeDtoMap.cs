@@ -1,12 +1,13 @@
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
+using App.Modules.Sys.Shared.Models.Enums;
 using App.Modules.Sys.Shared.ObjectMaps.Models;
 using App.Modules.Sys.Shared.ObjectMaps.Models.Implementations.Base;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
 {
 	/// <summary>
-	/// Maps <see cref="ExampleType"/> entity to <see cref="ExampleTypeDto"/>.
+	/// Maps <see cref="ExampleType"/> entity to <see cref="ExampleTypeReadDto"/>.
 	/// Uses individual map extensions matching the display-facing subset
 	/// that <c>ReferenceDataBaseDto</c> exposes to API consumers.
 	/// Discovered at startup via <see cref="IObjectMap"/> reflection scan.
@@ -19,7 +20,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
 	/// intentionally omits.
 	/// </para>
 	/// </remarks>
-	public class ExampleTypeToExampleTypeDtoMap : ObjectMapBase<ExampleType, ExampleTypeDto>
+	public class ExampleTypeToExampleTypeDtoMap : ObjectMapBase<ExampleType, ExampleTypeReadDto>
 	{
 		/// <inheritdoc/>
 		protected override void ConfigureMapping()
@@ -46,7 +47,8 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
 				.MapImage()
 				.MapDisplayHint()
 				.MapKey()
-				.MapFrom(dest => dest.ReferenceDataType, src => src.ReferenceDataType);
+				.MapFrom(dest => dest.ReferenceDataType, src => (int)src.ReferenceDataType)
+				.MapFrom(dest => dest.ReferenceDataTypeName, src => src.ReferenceDataType.ToString());
 		}
 	}
 }

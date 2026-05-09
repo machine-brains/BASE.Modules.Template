@@ -18,24 +18,29 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
     /// as it provides a standard set of CRUD operations with
     /// state management following our IQueryable-based repository patterns.
     /// </remarks>
-    public class ExampleAApplicationService
-		: SimpleCrustStateAppServiceBase<ExampleA, ExampleADto>,
+	public class ExampleAApplicationService
+		: CrustStateAppServiceBase<ExampleA, ExampleAReadDto, ExampleAWriteDto, ExampleAWriteDto>,
 		  IExampleAApplicationService
 	{
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ExampleAApplicationService"/> class.
-        /// </summary>
-        /// <param name="repository">The ExampleA repository for CRUST persistence.</param>
-        /// <param name="mapper">The object mapping service for ProjectTo and Map.</param>
-        /// <param name="logger">Logger instance for diagnostics.</param>
-        /// <remarks>
-        /// IMPORTANT:
-        /// Note how it is injected with the <see cref="ICrustStateRepository{TEntity}"/>
-        /// for CRUST persistence, in a queryable way.
-        /// Note also, that it is injected with the <see cref="IObjectMappingService"/> for ProjectTo and Map,
-        /// which the 'secret sauce' to make IQUyerable work across the projections from DTO to entities.
-        /// </remarks>  
-        public ExampleAApplicationService(
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExampleAApplicationService"/> class.
+		/// </summary>
+		/// <param name="repository">The ExampleA repository for CRUST persistence.</param>
+		/// <param name="mapper">The object mapping service for ProjectTo and Map.</param>
+		/// <param name="logger">Logger instance for diagnostics.</param>
+		/// <remarks>
+		/// <para>
+		/// Uses the full three-type <see cref="CrustStateAppServiceBase{TEntity,TReadDto,TCreateDto,TUpdateDto}"/>
+		/// base rather than the Simple variant because ExampleA uses the canonical split DTO pattern:
+		/// <see cref="ExampleAReadDto"/> for reads (includes navigation DTO) and
+		/// <see cref="ExampleAWriteDto"/> for create/update (FK-only, no navigation).
+		/// </para>
+		/// <para>
+		/// The <see cref="IObjectMappingService"/> drives EF-optimized ProjectTo on reads
+		/// and Map on writes, keeping IQueryable composable at the API boundary.
+		/// </para>
+		/// </remarks>
+		public ExampleAApplicationService(
 			ICrustStateRepository<ExampleA> repository,
 			IObjectMappingService mapper,
 			IAppLogger logger)

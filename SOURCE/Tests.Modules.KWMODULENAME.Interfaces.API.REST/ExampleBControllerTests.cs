@@ -1,7 +1,8 @@
-﻿using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services;
 using App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples;
 using NSubstitute;
+using App.Modules.Sys.Shared.Domains.Indexes;
 
 namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
 {
@@ -28,10 +29,10 @@ namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
 		public void WhenGetAllCalled_ThenDelegatesToServiceQuery()
 		{
 			// Arrange
-			var expectedDtos = new List<ExampleBDto>
+			var expectedDtos = new List<ExampleBReadDto>
 			{
-				new ExampleBDto { Id = Guid.NewGuid(), Name = "First" },
-				new ExampleBDto { Id = Guid.NewGuid(), Name = "Second" }
+				new ExampleBReadDto { Id = UUIDFactory.NewGuid(), Name = "First" },
+				new ExampleBReadDto { Id = UUIDFactory.NewGuid(), Name = "Second" }
 			}.AsQueryable();
 
 			this._mockService.Query().Returns(expectedDtos);
@@ -49,10 +50,10 @@ namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
 		public void WhenGetByIdCalled_ThenDelegatesToServiceQueryById()
 		{
 			// Arrange
-			var id = Guid.NewGuid();
-			var expectedDtos = new List<ExampleBDto>
+			var id = UUIDFactory.NewGuid();
+			var expectedDtos = new List<ExampleBReadDto>
 			{
-				new ExampleBDto { Id = id, Name = "Found" }
+				new ExampleBReadDto { Id = id, Name = "Found" }
 			}.AsQueryable();
 
 			this._mockService.QueryById(id).Returns(expectedDtos);

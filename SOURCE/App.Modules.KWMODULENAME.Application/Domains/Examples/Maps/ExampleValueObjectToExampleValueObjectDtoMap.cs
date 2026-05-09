@@ -6,10 +6,10 @@ using App.Modules.Sys.Shared.ObjectMaps.Models.Implementations.Base;
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
 {
 	/// <summary>
-	/// Maps <see cref="ExampleValueObject"/> entity to <see cref="ExampleValueObjectDto"/>.
+	/// Maps <see cref="ExampleValueObject"/> entity to <see cref="ExampleValueObjectReadDto"/>.
 	/// Discovered at startup via <see cref="IObjectMap"/> reflection scan.
 	/// </summary>
-	public class ExampleValueObjectToExampleValueObjectDtoMap : ObjectMapBase<ExampleValueObject, ExampleValueObjectDto>
+	public class ExampleValueObjectToExampleValueObjectDtoMap : ObjectMapBase<ExampleValueObject, ExampleValueObjectReadDto>
 	{
 		/// <inheritdoc/>
 		protected override void ConfigureMapping()

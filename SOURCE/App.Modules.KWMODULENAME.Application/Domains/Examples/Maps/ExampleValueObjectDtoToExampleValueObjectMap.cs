@@ -6,7 +6,7 @@ using App.Modules.Sys.Shared.ObjectMaps.Models.Implementations.Base;
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
 {
 	/// <summary>
-	/// Reverse map: <see cref="ExampleValueObjectDto"/> to <see cref="ExampleValueObject"/> entity.
+	/// Reverse map: <see cref="ExampleValueObjectReadDto"/> to <see cref="ExampleValueObject"/> entity.
 	/// Used by CRUST base for Create and Update operations.
 	/// Discovered at startup via <see cref="IObjectMap"/> reflection scan.
 	/// </summary>
@@ -22,7 +22,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
 	/// (navigable convention).
 	/// </para>
 	/// </remarks>
-	public class ExampleValueObjectDtoToExampleValueObjectMap : ObjectMapBase<ExampleValueObjectDto, ExampleValueObject>
+	public class ExampleValueObjectDtoToExampleValueObjectMap : ObjectMapBase<ExampleValueObjectReadDto, ExampleValueObject>
 	{
 		/// <inheritdoc/>
 		protected override void ConfigureMapping()

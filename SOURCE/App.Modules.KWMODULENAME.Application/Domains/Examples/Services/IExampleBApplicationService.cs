@@ -12,13 +12,16 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services
     /// <remarks>
     /// IMPORTANT: This is an Application Service contract, not a domain service contract.
     /// Note that this service inherits from
-    /// <see cref="ICrudStateAppService{TEntityDto,TCreateDto,TUpdateDto}"/>
-    /// This is the common pattern for the vaste majority of Application Services contracts in the system,
-    /// as it provides a standard set of CRUD operations with
-    /// state management following our IQueryable-based repository patterns.
+    /// <see cref="ICrudStateAppService{TReadDto,TCreateDto,TUpdateDto}"/>
+    /// and uses the canonical split DTO pattern:
+    /// <see cref="ExampleBReadDto"/> for reads (includes audit/infrastructure fields) and
+    /// <see cref="ExampleBWriteDto"/> for create/update (writable scalar fields only).
+    /// This is the common pattern for the vast majority of Application Services contracts
+    /// in the system, providing a standard set of CRUD operations with state management
+    /// following our IQueryable-based repository patterns.
     /// </remarks>
-    public interface IExampleBApplicationService
-		: ICrudStateAppService<ExampleBDto, ExampleBDto, ExampleBDto>
+	public interface IExampleBApplicationService
+		: ICrudStateAppService<ExampleBReadDto, ExampleBWriteDto, ExampleBWriteDto>
 	{
 	}
 }

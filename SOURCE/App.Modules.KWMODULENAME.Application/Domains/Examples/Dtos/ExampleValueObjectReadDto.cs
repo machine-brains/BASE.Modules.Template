@@ -6,7 +6,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos
 	/// <summary>
 	/// DTO for <see cref="Shared.Domains.Examples.Models.Implmentations.ExampleValueObject"/>.
 	/// </summary>
-	public record ExampleValueObjectDto : IHasGuidId, IHasName
+	public record ExampleValueObjectReadDto : IHasGuidId, IHasName
 	{
 		/// <summary>Gets or sets the unique identifier.</summary>
 		public Guid Id { get; set; }
