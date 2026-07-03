@@ -3,7 +3,7 @@ using App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Implementat
 using App.Modules.Sys.Shared.Attributes;
 using App.Modules.Sys.Shared.Domains.Lifecycles;
 using App.Modules.Sys.Shared.Domains.Configuration.Attributes;
-using App.Modules.Sys.Domains.Configurations.Models;
+using App.Modules.Sys.Shared.Domains.Configuration.Models;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Implementations
 {

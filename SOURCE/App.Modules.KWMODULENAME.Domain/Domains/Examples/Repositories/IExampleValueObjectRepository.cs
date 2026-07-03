@@ -1,4 +1,4 @@
-using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
+using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
 using App.Modules.Sys.Shared.Repositories;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Repositories
@@ -11,7 +11,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Repositories
     /// Extends <see cref="ICrustStateRepository{TEntity}"/> for standard CRUST
     /// (Create, Read, Update, State-Transition) persistence operations.
     /// <para>
-    /// It will be implemented within Infrastructure.Data.EF,
+    /// It will be implemented within Infrastructure.Persistence.EF,
     /// and injected into the Application Service contract
     /// </para>
     /// </remarks>  

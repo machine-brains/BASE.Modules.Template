@@ -32,10 +32,11 @@
   </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Constants\" />
-        <Folder Include="Domains\Examples\Entities\Implementations\" />
+        <Folder Include="Domains\Examples\Registries\Implementations\" />
         <Folder Include="Domains\Examples\Settings\" />
         <Folder Include="Domains\Examples\Repositories\Implementations\" />
+        <Folder Include="Domains\Examples\Structures\InMemory\" />
+        <Folder Include="Domains\Examples\Structures\InTransit\" />
     </ItemGroup>
 
 

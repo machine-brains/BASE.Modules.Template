@@ -1,5 +1,5 @@
-using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
-using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos;
+using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
 using App.Modules.Sys.Shared.ObjectMaps.Models;
 using App.Modules.Sys.Shared.ObjectMaps.Models.Implementations.Base;
 
@@ -26,7 +26,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
     /// <c>ExampleTypeFK</c> still provides identity.
     /// </para>
     /// <para>
-    /// See <see cref="Dtos.ExampleAWriteDto"/> for the canonical FK/Id naming rule.
+    /// See <see cref="Structures.InTransit.Dtos.ExampleAWriteDto"/> for the canonical FK/Id naming rule.
     /// See <see cref="ExampleAWriteDtoToExampleAMap"/> for the complementary write-side map.
     /// </para>
     /// </remarks>

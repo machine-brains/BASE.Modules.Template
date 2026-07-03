@@ -1,4 +1,4 @@
-using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
+using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
 using App.Modules.Sys.Shared.Domains.Indexes;
 
 namespace Tests.Modules.KWMODULENAME.Domain

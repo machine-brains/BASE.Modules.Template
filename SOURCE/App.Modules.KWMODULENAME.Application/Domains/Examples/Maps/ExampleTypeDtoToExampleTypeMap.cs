@@ -1,5 +1,5 @@
-using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
-using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos;
+using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
 using App.Modules.Sys.Shared.Models.Enums;
 using App.Modules.Sys.Shared.ObjectMaps.Models;
 using App.Modules.Sys.Shared.ObjectMaps.Models.Implementations.Base;

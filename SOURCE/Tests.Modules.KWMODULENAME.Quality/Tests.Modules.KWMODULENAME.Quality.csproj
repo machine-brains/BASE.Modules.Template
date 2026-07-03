@@ -43,7 +43,7 @@
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Shared\App.Modules.KWMODULENAME.Shared.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Domain\App.Modules.KWMODULENAME.Domain.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure\App.Modules.KWMODULENAME.Infrastructure.csproj" />
-    <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure.Data.EF\App.Modules.KWMODULENAME.Infrastructure.Data.EF.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure.Persistence.EF\App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Application\App.Modules.KWMODULENAME.Application.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.Models\App.Modules.KWMODULENAME.Interfaces.Models.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.API.REST\App.Modules.KWMODULENAME.Interfaces.API.REST.csproj" />

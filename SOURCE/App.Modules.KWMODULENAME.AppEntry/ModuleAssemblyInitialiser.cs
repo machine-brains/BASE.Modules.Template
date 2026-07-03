@@ -1,8 +1,5 @@
 using System;
-using System.Linq;
-using App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Implementations;
 using App.Modules.Sys.Initialisation.Implementation.Base;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace App.Modules.KWMODULENAME.AppEntry
@@ -18,7 +15,7 @@ namespace App.Modules.KWMODULENAME.AppEntry
     public class ModuleAssemblyInitialiser : ModuleAssemblyInitialiserBase
     {
         /// <summary>
-        /// Binds the example configuration object before the service provider is built.
+        /// Registers module-specific startup prerequisites before the service provider is built.
         /// </summary>
         /// <param name="services">Service collection available during startup composition.</param>
         /// <remarks>
@@ -29,28 +26,15 @@ namespace App.Modules.KWMODULENAME.AppEntry
         public override void DoBeforeBuild(IServiceCollection services)
         {
             ArgumentNullException.ThrowIfNull(services);
-
-            ServiceDescriptor? configurationDescriptor = services.FirstOrDefault(descriptor => descriptor.ServiceType == typeof(IConfiguration));
-            IConfiguration? configuration = configurationDescriptor?.ImplementationInstance as IConfiguration;
-            if (configuration == null)
-            {
-                return;
-            }
-
-            ExampleConfigurationObject exampleConfigurationObject = new ExampleConfigurationObject();
-            configuration.GetSection(ExampleConfigurationObject.SectionPath).Bind(exampleConfigurationObject);
-            services.AddSingleton(exampleConfigurationObject);
         }
 
         /// <summary>
-        /// Resolves the example configuration object after the service provider is built.
+        /// Allows post-build module startup participation after the service provider is built.
         /// </summary>
         /// <param name="serviceProvider">Built root service provider.</param>
         public override void DoAfterBuild(IServiceProvider serviceProvider)
         {
             ArgumentNullException.ThrowIfNull(serviceProvider);
-
-            _ = serviceProvider.GetService<ExampleConfigurationObject>();
         }
     }
 }

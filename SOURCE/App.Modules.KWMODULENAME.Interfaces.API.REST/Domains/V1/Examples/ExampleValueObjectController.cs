@@ -1,5 +1,5 @@
-using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos;
 using App.Modules.KWMODULENAME.Interfaces.API.REST.Constants;
 using App.Modules.Sys.Controllers;
 using App.Modules.Sys.Interfaces.Controllers.Base;

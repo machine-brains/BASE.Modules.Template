@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Implementations;
-using App.Modules.Sys.Domains.Configurations.Models;
 using App.Modules.Sys.Infrastructure.Domains.Configuration.Models.Implementations;
 using App.Modules.Sys.Shared.Definitions;
 using App.Modules.Sys.Shared.Domains.Configuration.Attributes;
+using App.Modules.Sys.Shared.Domains.Configuration.Models;
 using App.Modules.Sys.Shared.Services.Configuration;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Settings

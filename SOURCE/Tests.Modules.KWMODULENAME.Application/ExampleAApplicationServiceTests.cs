@@ -1,11 +1,11 @@
-using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Implementations;
-using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
 using App.Modules.Sys.Infrastructure.Services;
 using App.Modules.Sys.Shared.Domains.Diagnostics;
 using App.Modules.Sys.Shared.Repositories;
 using NSubstitute;
 using App.Modules.Sys.Shared.Domains.Indexes;
+using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos;
 
 namespace Tests.Modules.KWMODULENAME.Application
 {

@@ -32,6 +32,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Constants\**" />
+    <Compile Remove="Domain\**" />
+    <Compile Remove="Infrastructure\**" />
+    <EmbeddedResource Remove="Constants\**" />
+    <EmbeddedResource Remove="Domain\**" />
+    <EmbeddedResource Remove="Infrastructure\**" />
+    <None Remove="Constants\**" />
+    <None Remove="Domain\**" />
+    <None Remove="Infrastructure\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />
   </ItemGroup>
 
@@ -40,12 +52,6 @@
       <PackagePath>\</PackagePath>
       <Pack>true</Pack>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Domain\Domains\X\" />
-    <Folder Include="Infrastructure\Domains\X\" />
-    <Folder Include="Constants\" />
   </ItemGroup>
 
 </Project>

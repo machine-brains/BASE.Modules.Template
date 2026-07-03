@@ -1,8 +1,8 @@
-using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services;
 using App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples;
 using NSubstitute;
 using App.Modules.Sys.Shared.Domains.Indexes;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos;
 
 namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
 {

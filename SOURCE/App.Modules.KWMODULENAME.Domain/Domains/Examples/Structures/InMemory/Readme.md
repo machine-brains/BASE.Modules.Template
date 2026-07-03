@@ -1,0 +1,1 @@
+For Registry entries, etc.

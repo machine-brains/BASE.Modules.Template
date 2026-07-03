@@ -1,11 +1,11 @@
-using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos;
 using App.Modules.Sys.Shared.Application;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services
 {
     /// <summary>
     /// Application service contract for
-    /// <see cref="Shared.Domains.Examples.Models.Implmentations.ExampleValueObject"/> CRUST operations.
+    /// <see cref="Domain.Domains.Examples.Structures.AtRest.Entities.Implementations.ExampleValueObject"/> CRUST operations.
     /// </summary>
     /// <remarks>
     /// IMPORTANT: This is an Application Service contract, not a domain service contract.

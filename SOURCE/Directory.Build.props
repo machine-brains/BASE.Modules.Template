@@ -1,6 +1,9 @@
 <Project>
   <!-- Shared build properties for Template module -->
   <PropertyGroup>
+    
+    <!-- Suppress NuGet vulnerability warnings when offline or using legacy packages -->
+    <NoWarn>$(NoWarn);NU1900;NU1901;NU1902;NU1903;NU1904</NoWarn>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -19,6 +22,9 @@
 
   <!-- Warning suppressions for code analysis -->
   <PropertyGroup>
+    
+    <!-- Suppress NuGet vulnerability warnings when offline or using legacy packages -->
+    <NoWarn>$(NoWarn);NU1900;NU1901;NU1902;NU1903;NU1904</NoWarn>
     <NoWarn>$(NoWarn);CS1591;IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008;IDE0130;IDE0305;IDE0090;IDE0078;IDE0059;CA1865</NoWarn>
   </PropertyGroup>
 

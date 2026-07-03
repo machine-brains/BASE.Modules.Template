@@ -1,0 +1,13 @@
+# Generated EF Core migration files: silence analyzer rules that don't apply to generated code.
+[*.cs]
+# CA1861: Prefer 'static readonly' fields over constant array arguments - EF migrations use inline arrays by design.
+dotnet_diagnostic.CA1861.severity = none
+# Style noise in generated migration scaffolds.
+dotnet_diagnostic.IDE0090.severity = none
+dotnet_diagnostic.IDE0028.severity = none
+dotnet_diagnostic.IDE0300.severity = none
+dotnet_diagnostic.IDE0301.severity = none
+dotnet_diagnostic.IDE0303.severity = none
+dotnet_diagnostic.IDE0305.severity = none
+dotnet_diagnostic.SA1633.severity = none
+dotnet_diagnostic.CS1591.severity = none

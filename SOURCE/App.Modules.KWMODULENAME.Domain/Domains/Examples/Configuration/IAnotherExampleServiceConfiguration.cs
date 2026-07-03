@@ -1,7 +1,7 @@
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Constants;
-using App.Modules.Sys.Domains.Configurations.Models;
 using App.Modules.Sys.Shared.Attributes;
 using App.Modules.Sys.Shared.Domains.Configuration.Attributes;
+using App.Modules.Sys.Shared.Domains.Configuration.Models;
 using App.Modules.Sys.Shared.Services.Configuration;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration
