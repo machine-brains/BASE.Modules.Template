@@ -18,7 +18,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("kwmodulename")
-                .HasAnnotation("ProductVersion", "10.0.8")
+                .HasAnnotation("ProductVersion", "10.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -90,6 +90,18 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .HasColumnOrder(7)
                         .HasComment("Gets or sets the date when record state changed (nullable for soft delete).");
 
+                    b.Property<DateTime>("SysEndTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("SysEndTime")
+                        .HasComment("Stores the Sys End Time value for the Example A record.");
+
+                    b.Property<DateTime>("SysStartTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("SysStartTime")
+                        .HasComment("Stores the Sys Start Time value for the Example A record.");
+
                     b.Property<byte[]>("Timestamp")
                         .IsConcurrencyToken()
                         .IsRequired()
@@ -122,6 +134,17 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         {
                             t.HasComment("Example entity A - demonstrates a domain entity inheriting from with title, description, active flag, and a foreign key to reference data. Replace with your actual domain entity when cloning.");
                         });
+
+                    b.ToTable(tb => tb.IsTemporal(ttb =>
+                            {
+                                ttb.UseHistoryTable("ExampleAsHistory", "kwmodulename_examples");
+                                ttb
+                                    .HasPeriodStart("SysStartTime")
+                                    .HasColumnName("SysStartTime");
+                                ttb
+                                    .HasPeriodEnd("SysEndTime")
+                                    .HasColumnName("SysEndTime");
+                            }));
                 });
 
             modelBuilder.Entity("App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations.ExampleAExampleB", b =>
@@ -184,6 +207,18 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the date when record state changed (nullable for soft delete).");
 
+                    b.Property<DateTime>("SysEndTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("SysEndTime")
+                        .HasComment("Stores the Sys End Time value for the Example A Example B record.");
+
+                    b.Property<DateTime>("SysStartTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("SysStartTime")
+                        .HasComment("Stores the Sys Start Time value for the Example A Example B record.");
+
                     b.Property<byte[]>("Timestamp")
                         .IsConcurrencyToken()
                         .IsRequired()
@@ -207,6 +242,17 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         {
                             t.HasComment("Explicit join entity linking and in a many-to-many relationship.");
                         });
+
+                    b.ToTable(tb => tb.IsTemporal(ttb =>
+                            {
+                                ttb.UseHistoryTable("ExampleAExampleBsHistory", "kwmodulename_examples");
+                                ttb
+                                    .HasPeriodStart("SysStartTime")
+                                    .HasColumnName("SysStartTime");
+                                ttb
+                                    .HasPeriodEnd("SysEndTime")
+                                    .HasColumnName("SysEndTime");
+                            }));
                 });
 
             modelBuilder.Entity("App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations.ExampleB", b =>
@@ -277,6 +323,18 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .HasColumnOrder(7)
                         .HasComment("Gets or sets the date when record state changed (nullable for soft delete).");
 
+                    b.Property<DateTime>("SysEndTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("SysEndTime")
+                        .HasComment("Stores the Sys End Time value for the Example B record.");
+
+                    b.Property<DateTime>("SysStartTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("SysStartTime")
+                        .HasComment("Stores the Sys Start Time value for the Example B record.");
+
                     b.Property<byte[]>("Timestamp")
                         .IsConcurrencyToken()
                         .IsRequired()
@@ -305,6 +363,17 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         {
                             t.HasComment("Example entity B - demonstrates a child/related domain entity that references via a foreign key. Inherits from for standard identity, audit, and record-state plumbing. Replace with your actual domain entity when cloning.");
                         });
+
+                    b.ToTable(tb => tb.IsTemporal(ttb =>
+                            {
+                                ttb.UseHistoryTable("ExampleBsHistory", "kwmodulename_examples");
+                                ttb
+                                    .HasPeriodStart("SysStartTime")
+                                    .HasColumnName("SysStartTime");
+                                ttb
+                                    .HasPeriodEnd("SysEndTime")
+                                    .HasColumnName("SysEndTime");
+                            }));
                 });
 
             modelBuilder.Entity("App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations.ExampleType", b =>
@@ -338,14 +407,14 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValue(0)
-                        .HasColumnOrder(15)
+                        .HasColumnOrder(18)
                         .HasComment("A Hint to the Interface (UI/API) to organise item order on initial display. Non-unique. May be overridden by MRU settings.");
 
                     b.Property<string>("DisplayStyleHint")
                         .HasMaxLength(64)
                         .IsUnicode(true)
                         .HasColumnType("nvarchar(64)")
-                        .HasColumnOrder(14)
+                        .HasColumnOrder(17)
                         .HasComment("A Hint on how to display the item. Consider using the field for a Classname that will mean something to the UX interface.");
 
                     b.Property<bool>("Enabled")
@@ -357,18 +426,24 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
 
                     b.Property<int?>("EnumValue")
                         .HasColumnType("int")
-                        .HasColumnOrder(20)
+                        .HasColumnOrder(23)
                         .HasComment("The integer value from the original . null for custom entries added beyond the built-in enum values.");
 
                     b.Property<DateTimeOffset?>("FromUtc")
                         .HasColumnType("datetimeoffset")
-                        .HasColumnOrder(18)
+                        .HasColumnOrder(21)
                         .HasComment("Gets or sets the start datetime.");
 
-                    b.Property<Guid?>("ImageFK")
+                    b.Property<string>("ImageDescription")
+                        .HasMaxLength(256)
+                        .IsUnicode(true)
+                        .HasColumnType("nvarchar(256)")
+                        .HasColumnOrder(15)
+                        .HasComment("Accessible description of the associated image (rendered as the HTML alt attribute or equivalent ARIA label by the UI layer).");
+
+                    b.Property<Guid?>("ImageId")
                         .HasColumnType("uniqueidentifier")
-                        .HasColumnOrder(13)
-                        .HasComment("FK to the MediaContent record representing the image. Null when no image is assigned.");
+                        .HasComment("Opaque identifier for the related Image aggregate.");
 
                     b.Property<string>("Key")
                         .IsRequired()
@@ -391,6 +466,29 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
 
+                    b.Property<Guid?>("MediaContentFK")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(16)
+                        .HasComment("FK to MediaContent when MediaType is Media. Null otherwise.");
+
+                    b.Property<Guid?>("MediaFK")
+                        .HasColumnType("uniqueidentifier")
+                        .HasComment("Foreign key to the Media record.");
+
+                    b.Property<string>("MediaFontKey")
+                        .HasMaxLength(200)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(200)")
+                        .HasColumnOrder(14)
+                        .HasComment("Font/icon key media source. Should be set only when MediaType is Font.");
+
+                    b.Property<int>("MediaType")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnOrder(13)
+                        .HasComment("Discriminator that declares which media source field is active (None, Font, Media).");
+
                     b.Property<int>("RecordState")
                         .HasColumnType("int")
                         .HasColumnOrder(2)
@@ -398,7 +496,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
 
                     b.Property<int>("ReferenceDataType")
                         .HasColumnType("int")
-                        .HasColumnOrder(16)
+                        .HasColumnOrder(19)
                         .HasComment("Gets or sets the reference data classification.");
 
                     b.Property<string>("StateChangedByPrincipalId")
@@ -412,6 +510,18 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(7)
                         .HasComment("Gets or sets the date when record state changed (nullable for soft delete).");
+
+                    b.Property<DateTime>("SysEndTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("SysEndTime")
+                        .HasComment("Stores the Sys End Time value for the Example Type record.");
+
+                    b.Property<DateTime>("SysStartTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("SysStartTime")
+                        .HasComment("Stores the Sys Start Time value for the Example Type record.");
 
                     b.Property<byte[]>("Timestamp")
                         .IsConcurrencyToken()
@@ -431,7 +541,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
 
                     b.Property<DateTimeOffset?>("ToUtc")
                         .HasColumnType("datetimeoffset")
-                        .HasColumnOrder(19)
+                        .HasColumnOrder(22)
                         .HasComment("Gets or sets the end datetime.");
 
                     b.Property<string>("Value")
@@ -439,7 +549,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .HasMaxLength(256)
                         .IsUnicode(true)
                         .HasColumnType("nvarchar(256)")
-                        .HasColumnOrder(17)
+                        .HasColumnOrder(20)
                         .HasComment("Stores the Value value for the Example Type record.");
 
                     b.HasKey("Id");
@@ -459,12 +569,14 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .IsUnique()
                         .HasDatabaseName("IX_ExampleTypes_Id");
 
-                    b.HasIndex("ImageFK")
-                        .HasDatabaseName("IX_ExampleType_ImageFK");
+                    b.HasIndex("ImageId");
 
                     b.HasIndex("Key")
                         .IsUnique()
                         .HasDatabaseName("IX_ExampleType_Key");
+
+                    b.HasIndex("MediaContentFK")
+                        .HasDatabaseName("IX_ExampleType_MediaContentFK");
 
                     b.HasIndex("RecordState")
                         .HasDatabaseName("IX_ExampleTypes_RecordState");
@@ -480,6 +592,17 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                             t.HasComment("Reference data entity that classifies instances. Many-to-one: each has one .");
                         });
 
+                    b.ToTable(tb => tb.IsTemporal(ttb =>
+                            {
+                                ttb.UseHistoryTable("ExampleTypesHistory", "kwmodulename_ref");
+                                ttb
+                                    .HasPeriodStart("SysStartTime")
+                                    .HasColumnName("SysStartTime");
+                                ttb
+                                    .HasPeriodEnd("SysEndTime")
+                                    .HasColumnName("SysEndTime");
+                            }));
+
                     b.HasData(
                         new
                         {
@@ -493,6 +616,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                             Key = "Undefined",
                             LastModifiedByPrincipalId = "SYSTEM",
                             LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            MediaType = 0,
                             RecordState = 4,
                             ReferenceDataType = 4,
                             Title = "Undefined",
@@ -510,6 +634,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                             Key = "NotApplicable",
                             LastModifiedByPrincipalId = "SYSTEM",
                             LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            MediaType = 0,
                             RecordState = 4,
                             ReferenceDataType = 4,
                             Title = "NotApplicable",
@@ -527,6 +652,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                             Key = "Unspecified",
                             LastModifiedByPrincipalId = "SYSTEM",
                             LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            MediaType = 0,
                             RecordState = 4,
                             ReferenceDataType = 4,
                             Title = "Unspecified",
@@ -544,6 +670,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                             Key = "Unknown",
                             LastModifiedByPrincipalId = "SYSTEM",
                             LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            MediaType = 0,
                             RecordState = 4,
                             ReferenceDataType = 4,
                             Title = "Unknown",
@@ -561,6 +688,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                             Key = "General",
                             LastModifiedByPrincipalId = "SYSTEM",
                             LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            MediaType = 0,
                             RecordState = 4,
                             ReferenceDataType = 4,
                             Title = "General",
@@ -578,6 +706,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                             Key = "Specialised",
                             LastModifiedByPrincipalId = "SYSTEM",
                             LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            MediaType = 0,
                             RecordState = 4,
                             ReferenceDataType = 4,
                             Title = "Specialised",
@@ -595,6 +724,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                             Key = "Advanced",
                             LastModifiedByPrincipalId = "SYSTEM",
                             LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            MediaType = 0,
                             RecordState = 4,
                             ReferenceDataType = 4,
                             Title = "Advanced",
@@ -676,6 +806,18 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .HasColumnOrder(7)
                         .HasComment("Gets or sets the date when record state changed (nullable for soft delete).");
 
+                    b.Property<DateTime>("SysEndTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("SysEndTime")
+                        .HasComment("Stores the Sys End Time value for the Example Value Object record.");
+
+                    b.Property<DateTime>("SysStartTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("SysStartTime")
+                        .HasComment("Stores the Sys Start Time value for the Example Value Object record.");
+
                     b.Property<byte[]>("Timestamp")
                         .IsConcurrencyToken()
                         .IsRequired()
@@ -703,6 +845,17 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         {
                             t.HasComment("A value-object–style child of . One-to-many: each owns zero or more of these.");
                         });
+
+                    b.ToTable(tb => tb.IsTemporal(ttb =>
+                            {
+                                ttb.UseHistoryTable("ExampleValueObjectsHistory", "kwmodulename_examples");
+                                ttb
+                                    .HasPeriodStart("SysStartTime")
+                                    .HasColumnName("SysStartTime");
+                                ttb
+                                    .HasPeriodEnd("SysEndTime")
+                                    .HasColumnName("SysEndTime");
+                            }));
                 });
 
             modelBuilder.Entity("App.Modules.Sys.Shared.Models.Implementations.MediaContent", b =>
@@ -740,6 +893,11 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .HasColumnType("datetimeoffset")
                         .HasComment("Gets or sets the UTC DateTime created on. Changed To DateTimeOffset.");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("The textual Description. Note that it records put Descriptions in DBs makes it harder to be international later. Consider using the field for a token that a post processor could recognise and replace with a localised text resource.");
+
                     b.Property<int?>("HeightPx")
                         .HasColumnType("int")
                         .HasComment("Height of the image in pixels. See for full context.");
@@ -747,7 +905,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                     b.Property<string>("Key")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
-                        .HasComment("Logical content key used to group culture variants together. Example: \"terms_md\", \"logo_png\".");
+                        .HasComment("Get/Set the list item's unique key. Note: Consider the difference with .");
 
                     b.Property<string>("LastModifiedByPrincipalId")
                         .IsRequired()
@@ -782,14 +940,21 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                         .HasColumnType("rowversion")
                         .HasComment("Gets or sets the datastore concurrency check timestamp. Note that this is filled in when persisted in the db -- so it's usable to determine whether Record is New or not.");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("The (display) title");
+
                     b.Property<int?>("WidthPx")
                         .HasColumnType("int")
                         .HasComment("Width of the image in pixels. Only populated for image media types (e.g. image/png, image/jpeg, image/webp). Null for non-image content. Used for aspect-ratio preservation during resize operations and to emit width / height HTML attributes that prevent cumulative layout shift (CLS).");
 
                     b.HasKey("Id");
 
-                    b.ToTable("MediaContent", "kwmodulename", t =>
+                    b.ToTable("MediaContents", "sys_core", t =>
                         {
+                            t.ExcludeFromMigrations();
+
                             t.HasComment("Concrete entity for culture-neutral media content. See for full documentation.");
                         });
                 });
@@ -828,10 +993,16 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                 {
                     b.HasOne("App.Modules.Sys.Shared.Models.Implementations.MediaContent", "Image")
                         .WithMany()
-                        .HasForeignKey("ImageFK")
+                        .HasForeignKey("ImageId");
+
+                    b.HasOne("App.Modules.Sys.Shared.Models.Implementations.MediaContent", "MediaContent")
+                        .WithMany()
+                        .HasForeignKey("MediaContentFK")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Image");
+
+                    b.Navigation("MediaContent");
                 });
 
             modelBuilder.Entity("App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations.ExampleValueObject", b =>

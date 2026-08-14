@@ -25,6 +25,10 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Impleme
         /// </para>
     /// </remarks>
     [Alias(KWMODULENAMEConfigKeys.Examples)]
+	[ConfigurationGroupDescription(
+		SectionPath,
+		"Template Example Configuration",
+		"Example module configuration demonstrating root and nested configuration metadata.")]
     public class ExampleConfigurationObject : IConfigurationObject
     {
         /// <summary>
@@ -71,11 +75,13 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Impleme
         /// <summary>
         /// Gets or sets the nested configuration subtree for implementation A.
         /// </summary>
+		[ConfigurationPropertyDescriptionAttribute(true, false, "Service A Configuration", "Nested configuration subtree for example service implementation A.")]
         public AnotherExampleAServiceConfiguration ServiceA { get; set; } = new AnotherExampleAServiceConfiguration();
 
         /// <summary>
         /// Gets or sets the nested configuration subtree for implementation B.
         /// </summary>
+		[ConfigurationPropertyDescriptionAttribute(true, false, "Service B Configuration", "Nested configuration subtree for example service implementation B.")]
         public AnotherExampleBServiceConfiguration ServiceB { get; set; } = new AnotherExampleBServiceConfiguration();
     }
 }
