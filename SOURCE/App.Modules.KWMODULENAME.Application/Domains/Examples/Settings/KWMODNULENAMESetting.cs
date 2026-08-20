@@ -21,11 +21,11 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Settings
     /// Often has nested objects that derive from
     /// <see cref="IServiceConfiguration"/>
     /// </remarks>
-	[ConfigurationGroupDescription(
+	[ConfigurationsGroupDescription(
 		SectionPath,
 		"Template Settings",
 		"Application-level example settings container for the template module.")]
-    public class KWMODNULENAMESettings : IConfigurationObject
+    public class KWMODNULENAMESettings : IConfigurationsGroup
     {
 		public const string SectionPath = KWMODULENAMEConfigKeys.Examples + ":Settings";
 

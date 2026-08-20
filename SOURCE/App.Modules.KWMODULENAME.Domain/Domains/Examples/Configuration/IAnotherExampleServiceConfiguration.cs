@@ -10,7 +10,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration
     /// Example nested service configuration contract.
     /// </summary>
     /// <remarks>
-    /// This demonstrates that a module-level <see cref="IConfigurationObject"/>
+    /// This demonstrates that a module-level <see cref="IConfigurationsGroup"/>
     /// can contain a nested <see cref="IServiceConfiguration"/> subtree used to configure one concrete injected service.
     /// The module object owns the broader section, while the service configuration owns the service-specific shape.
     /// </remarks>

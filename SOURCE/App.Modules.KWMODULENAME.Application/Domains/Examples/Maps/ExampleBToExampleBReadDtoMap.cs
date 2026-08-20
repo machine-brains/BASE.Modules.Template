@@ -35,7 +35,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
                 .MapFrom(dest => dest.ExampleAId, src => src.ExampleAId)
                 .MapFrom(dest => dest.Name, src => src.Name)
                 .MapFrom(dest => dest.SortOrder, src => src.SortOrder)
-                .MapFrom(dest => dest.CreatedUtc, src => src.CreatedOnDateTimeUtc);
+                .MapFrom(dest => dest.CreatedUtc, src => src.CreatedOnUtc);
         }
     }
 }
