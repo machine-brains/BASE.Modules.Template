@@ -48,7 +48,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
 				.MapDisplayHint()
 				.MapKey()
 				.MapFrom(dest => dest.ReferenceDataType, src => (int)src.ReferenceDataType)
-				.MapFrom(dest => dest.ReferenceDataTypeName, src => src.ReferenceDataType.ToString());
+				.MapFrom(dest => dest.ReferenceDataTypeName, src => src.RecordMutabilityType.ToString());
 		}
 	}
 }

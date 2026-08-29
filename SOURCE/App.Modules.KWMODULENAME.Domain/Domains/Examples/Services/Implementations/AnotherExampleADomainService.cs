@@ -16,7 +16,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Services.Implementati
     public class AnotherExampleADomainService : IAnotherExampleADomainService
     {
         private readonly AnotherExampleAServiceConfiguration _exampleServiceConfiguration;
-        private readonly ExampleConfigurationObject _exampleConfigurationObject;
+        private readonly ExampleConfigurationsGroup _exampleConfigurationObject;
 
         /// <summary>
         /// Initialises a new instance of the <see cref="AnotherExampleADomainService"/> class.
@@ -25,7 +25,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Services.Implementati
         /// <param name="exampleConfigurationObject"></param>
         public AnotherExampleADomainService(
             AnotherExampleAServiceConfiguration exampleServiceConfigurationObject,
-            ExampleConfigurationObject exampleConfigurationObject)
+            ExampleConfigurationsGroup exampleConfigurationObject)
         {
             this._exampleServiceConfiguration = exampleServiceConfigurationObject;
             this._exampleConfigurationObject = exampleConfigurationObject;

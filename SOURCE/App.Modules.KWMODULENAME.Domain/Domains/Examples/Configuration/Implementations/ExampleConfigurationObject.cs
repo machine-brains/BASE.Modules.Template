@@ -29,7 +29,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Impleme
 		SectionPath,
 		"Template Example Configuration",
 		"Example module configuration demonstrating root and nested configuration metadata.")]
-    public class ExampleConfigurationObject : IConfigurationsGroup
+    public class ExampleConfigurationsGroup : IConfigurationsGroup
     {
         /// <summary>
         /// Configuration section path for the example settings.

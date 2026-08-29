@@ -14,7 +14,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Settings
     /// <summary>
     /// /A Configuration object that is
     /// discoverable at startup, due to
-    /// inherititng from <see cref="IDiscoverableDefinitionObject"/>
+    /// inherititng from <see cref="IDiscoverableDefinitionGroup"/>
     /// which in turn inherits from <c>IHasSingletonLifecycle</c>
     /// </summary>
     /// <remarks>
@@ -25,7 +25,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Settings
 		SectionPath,
 		"Template Settings",
 		"Application-level example settings container for the template module.")]
-    public class KWMODNULENAMESettings : IConfigurationsGroup
+    public class KWMODNULENAMEConfigurationsGroup : IConfigurationsGroup
     {
 		public const string SectionPath = KWMODULENAMEConfigKeys.Examples + ":Settings";
 
@@ -45,7 +45,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Settings
         /// Can Reference nested objects
         /// </summary>
 		[ConfigurationPropertyDescriptionAttribute(true, true, "Example Sub Configuration", "Nested example configuration subtree for the template module.")]
-        public ExampleConfigurationObject ExampleSub {get;set;}= new ExampleConfigurationObject();
+        public ExampleConfigurationsGroup ExampleSub {get;set;}= new ExampleConfigurationsGroup();
 
     }
 }

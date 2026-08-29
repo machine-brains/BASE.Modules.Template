@@ -50,7 +50,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
 				.MapImage()
 				.MapDisplayHint()
 				.MapKey()
-				.MapFrom(dest => dest.ReferenceDataType, src => (ReferenceDataType)src.ReferenceDataType);
+				.MapFrom(dest => dest.ReferenceDataType, src => (RecordMutabilityType)src.ReferenceDataType);
 		}
 	}
 }

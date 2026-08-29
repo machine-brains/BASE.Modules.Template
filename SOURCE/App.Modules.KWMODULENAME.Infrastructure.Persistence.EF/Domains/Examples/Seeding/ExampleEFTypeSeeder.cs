@@ -40,7 +40,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Seeding
 					Title = name,
 					Description = "Example type: " + name + ".",
 					Enabled = !isSentinel,
-					ReferenceDataType = ReferenceDataType.System,
+					RecordMutability = RecordMutabilityType.System,
 					EnumValue = (int)value,
 					DisplayOrderHint = order++
 				});

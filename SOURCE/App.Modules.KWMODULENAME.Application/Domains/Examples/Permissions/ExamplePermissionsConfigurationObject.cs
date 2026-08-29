@@ -12,7 +12,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Permissions
     /// the discoverable type defines the ownership boundary, while the constants inside it
     /// remain the true logical identifiers and carry permission metadata via attributes.
     /// </remarks>
-    public class ExamplePermissionsConfigurationObject : IPermissionsGroup
+    public class ExamplePermissionsPermissionsGroup : IPermissionsGroup
     {
         private const string Module = ModuleConstants.Key;
         private const string Domain = Module + ".Examples";

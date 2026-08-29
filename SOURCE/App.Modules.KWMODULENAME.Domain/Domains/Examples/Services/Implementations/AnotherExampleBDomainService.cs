@@ -12,7 +12,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Services.Implementati
     public class AnotherExampleBDomainService : IAnotherExampleBDomainService
     {
         private readonly AnotherExampleAServiceConfiguration _exampleServiceConfiguration;
-        private readonly ExampleConfigurationObject _exampleConfigurationObject;
+        private readonly ExampleConfigurationsGroup _exampleConfigurationObject;
 
         /// <summary>
         /// Initialises a new instance of the <see cref="AnotherExampleBDomainService"/> class.
@@ -21,7 +21,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Services.Implementati
         /// <param name="exampleConfigurationObject"></param>
         public AnotherExampleBDomainService(
             AnotherExampleAServiceConfiguration exampleServiceConfigurationObject,
-            ExampleConfigurationObject exampleConfigurationObject)
+            ExampleConfigurationsGroup exampleConfigurationObject)
         {
             ArgumentNullException.ThrowIfNull(exampleServiceConfigurationObject);
 
