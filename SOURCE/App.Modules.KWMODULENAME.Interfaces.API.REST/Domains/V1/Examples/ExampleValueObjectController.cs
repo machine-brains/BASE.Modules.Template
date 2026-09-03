@@ -30,14 +30,14 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
     /// </para>
     /// </remarks>
     [Route(ApiRoutes.Rest.V1.ExampleValueObjects.Base)]
-	public class ExampleValueObjectController : SimpleCrudStateControllerBase<ExampleValueObjectReadDto>, IHasScopedController
-	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ExampleValueObjectController"/> class.
-		/// </summary>
-		public ExampleValueObjectController(IExampleValueObjectApplicationService service)
-			: base(service)
-		{
+    public class ExampleValueObjectController : SimpleCrudStateControllerBase<ExampleValueObjectReadDto>, IHasScopedController
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExampleValueObjectController"/> class.
+        /// </summary>
+        public ExampleValueObjectController(IExampleValueObjectApplicationService service)
+            : base(service)
+        {
             // IMPORTANT:
             // Security is not done using
             // the simplistic role managed

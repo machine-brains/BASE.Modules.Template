@@ -16,6 +16,6 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Repositories
     /// </para>
     /// </remarks>  
     public interface IExampleARepository : ICrustStateRepository<ExampleA>
-	{
-	}
+    {
+    }
 }

@@ -28,36 +28,36 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Enu
     /// </para>
     /// </remarks>
     public enum ExampleTypeCode
-	{
-		/// <summary>
-		/// Not set. Indicates a programming error or
+    {
+        /// <summary>
+        /// Not set. Indicates a programming error or
         /// uninitialised value.
-		/// </summary>
-		Undefined = 0,
+        /// </summary>
+        Undefined = 0,
 
-		/// <summary>
-		/// Not applicable in this context.
-		/// </summary>
-		NotApplicable = 1,
+        /// <summary>
+        /// Not applicable in this context.
+        /// </summary>
+        NotApplicable = 1,
 
-		/// <summary>
-		/// Consciously left unspecified.
+        /// <summary>
+        /// Consciously left unspecified.
         /// The value is intentionally not provided.
-		/// </summary>
-		Unspecified = 2,
+        /// </summary>
+        Unspecified = 2,
 
-		/// <summary>
-		/// Unknown or unresolvable state.
-		/// </summary>
-		Unknown = 3,
+        /// <summary>
+        /// Unknown or unresolvable state.
+        /// </summary>
+        Unknown = 3,
 
-		/// <summary>A general-purpose example type.</summary>
-		General = 4,
+        /// <summary>A general-purpose example type.</summary>
+        General = 4,
 
-		/// <summary>A specialised example type.</summary>
-		Specialised = 5,
+        /// <summary>A specialised example type.</summary>
+        Specialised = 5,
 
-		/// <summary>An advanced example type.</summary>
-		Advanced = 6
-	}
+        /// <summary>An advanced example type.</summary>
+        Advanced = 6
+    }
 }

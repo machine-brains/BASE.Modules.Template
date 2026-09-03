@@ -18,7 +18,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services
     /// state management following our IQueryable-based repository patterns.
     /// </remarks>
 	public interface IExampleAApplicationService
-		: ICrudStateAppService<ExampleAReadDto, ExampleAWriteDto, ExampleAWriteDto>
-	{
-	}
+        : ICrudStateAppService<ExampleAReadDto, ExampleAWriteDto, ExampleAWriteDto>
+    {
+    }
 }

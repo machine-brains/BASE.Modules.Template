@@ -21,7 +21,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services
     /// following our IQueryable-based repository patterns.
     /// </remarks>
 	public interface IExampleBApplicationService
-		: ICrudStateAppService<ExampleBReadDto, ExampleBWriteDto, ExampleBWriteDto>
-	{
-	}
+        : ICrudStateAppService<ExampleBReadDto, ExampleBWriteDto, ExampleBWriteDto>
+    {
+    }
 }

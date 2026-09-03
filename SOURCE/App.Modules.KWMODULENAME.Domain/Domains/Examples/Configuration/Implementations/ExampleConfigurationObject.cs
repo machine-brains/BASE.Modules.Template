@@ -16,19 +16,19 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Impleme
     /// configuration section that drives service behaviour without introducing magic strings.
     /// </para>
     /// <para>
-        /// Note that this inherits from <see cref="IConfigurationsGroup"/>
+    /// Note that this inherits from <see cref="IConfigurationsGroup"/>
     /// which inherits from <see cref="IHasSingletonLifecycle"/>.
     /// </para>
-        /// <para>
-        /// This type also demonstrates that a module-level <see cref="IConfigurationsGroup"/> can contain
-        /// a nested <see cref="IAnotherExampleServiceConfiguration"/> subtree used to configure one injected service.
-        /// </para>
+    /// <para>
+    /// This type also demonstrates that a module-level <see cref="IConfigurationsGroup"/> can contain
+    /// a nested <see cref="IAnotherExampleServiceConfiguration"/> subtree used to configure one injected service.
+    /// </para>
     /// </remarks>
     [Alias(KWMODULENAMEConfigKeys.Examples)]
-	[ConfigurationsGroupDescription(
-		SectionPath,
-		"Template Example Configuration",
-		"Example module configuration demonstrating root and nested configuration metadata.")]
+    [ConfigurationsGroupDescription(
+        SectionPath,
+        "Template Example Configuration",
+        "Example module configuration demonstrating root and nested configuration metadata.")]
     public class ExampleConfigurationsGroup : IConfigurationsGroup
     {
         /// <summary>

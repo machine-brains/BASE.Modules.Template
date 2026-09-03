@@ -22,14 +22,15 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Settings
     /// <see cref="IServiceConfiguration"/>
     /// </remarks>
 	[ConfigurationsGroupDescription(
-		SectionPath,
-		"Template Settings",
-		"Application-level example settings container for the template module.")]
+        SectionPath,
+        "Template Settings",
+        "Application-level example settings container for the template module.")]
     public class KWMODNULENAMEConfigurationsGroup : IConfigurationsGroup
     {
-		public const string SectionPath = KWMODULENAMEConfigKeys.Examples + ":Settings";
+        public const string SectionPath = KWMODULENAMEConfigKeys.Examples + ":Settings";
 
-        internal static class Paths {
+        internal static class Paths
+        {
             public const string A = "";
         }
 
@@ -45,7 +46,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Settings
         /// Can Reference nested objects
         /// </summary>
 		[ConfigurationPropertyDescriptionAttribute(true, true, "Example Sub Configuration", "Nested example configuration subtree for the template module.")]
-        public ExampleConfigurationsGroup ExampleSub {get;set;}= new ExampleConfigurationsGroup();
+        public ExampleConfigurationsGroup ExampleSub { get; set; } = new ExampleConfigurationsGroup();
 
     }
 }

@@ -36,25 +36,25 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
         protected override void ConfigureMapping()
         {
             // -- Mapping instructions ------------------------------------
-                // 1. Map EVERY property explicitly, one by one.
-                //    No auto-mapping / convention-based magic.
-                // 2. Use OUR extension methods (MapGuidId, MapTitleAndDescription,
-                //    MapFrom, etc.) — never vendor-specific helpers.
-                // 3. Map both the FK and the navigation DTO for read operations.
-                //    The ExampleType navigation DTO is resolved automatically by the
-                //    mapping engine at projection time via the registered
-                //    ExampleTypeToExampleTypeDtoMap — it does not need an explicit
-                //    MapFrom call here because source and destination navigation
-                //    types differ (entity vs DTO) and the mapper resolves the nested
-                //    map by convention when both maps are registered.
-                // 4. Navigation collections are NOT mapped on this DTO.
-                // -------------------------------------------------------------
+            // 1. Map EVERY property explicitly, one by one.
+            //    No auto-mapping / convention-based magic.
+            // 2. Use OUR extension methods (MapGuidId, MapTitleAndDescription,
+            //    MapFrom, etc.) — never vendor-specific helpers.
+            // 3. Map both the FK and the navigation DTO for read operations.
+            //    The ExampleType navigation DTO is resolved automatically by the
+            //    mapping engine at projection time via the registered
+            //    ExampleTypeToExampleTypeDtoMap — it does not need an explicit
+            //    MapFrom call here because source and destination navigation
+            //    types differ (entity vs DTO) and the mapper resolves the nested
+            //    map by convention when both maps are registered.
+            // 4. Navigation collections are NOT mapped on this DTO.
+            // -------------------------------------------------------------
 
-                this.CreateMap()
-                    .MapGuidId()
-                    .MapFrom(dest => dest.ExampleTypeFK, src => src.ExampleTypeFK)
-                    .MapTitleAndDescription()
-                    .MapFrom(dest => dest.IsActive, src => src.IsActive);
+            this.CreateMap()
+                .MapGuidId()
+                .MapFrom(dest => dest.ExampleTypeFK, src => src.ExampleTypeFK)
+                .MapTitleAndDescription()
+                .MapFrom(dest => dest.IsActive, src => src.IsActive);
         }
     }
 }

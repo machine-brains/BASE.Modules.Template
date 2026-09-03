@@ -47,15 +47,15 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
 	/// </para>
 	/// </remarks>
 	[Route(ApiRoutes.Rest.V1.ExampleAs.Base)]
-	public class ExampleAController : CrudStateControllerBase<ExampleAReadDto, ExampleAWriteDto, ExampleAWriteDto>
-	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ExampleAController"/> class.
-		/// </summary>
-		/// <param name="service">The ExampleA application service.</param>
-		public ExampleAController(IExampleAApplicationService service)
-			: base(service)
-		{
+    public class ExampleAController : CrudStateControllerBase<ExampleAReadDto, ExampleAWriteDto, ExampleAWriteDto>
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExampleAController"/> class.
+        /// </summary>
+        /// <param name="service">The ExampleA application service.</param>
+        public ExampleAController(IExampleAApplicationService service)
+            : base(service)
+        {
             // IMPORTANT:
             // Security is not done using
             // the simplistic role managed

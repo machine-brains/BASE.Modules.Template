@@ -19,33 +19,33 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
     /// state management following our IQueryable-based repository patterns.
     /// </remarks>
 	public class ExampleAApplicationService
-		: CrustStateAppServiceBase<ExampleA, ExampleAReadDto, ExampleAWriteDto, ExampleAWriteDto>,
-		  IExampleAApplicationService
-	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ExampleAApplicationService"/> class.
-		/// </summary>
-		/// <param name="repository">The ExampleA repository for CRUST persistence.</param>
-		/// <param name="mapper">The object mapping service for ProjectTo and Map.</param>
-		/// <param name="logger">Logger instance for diagnostics.</param>
-		/// <remarks>
-		/// <para>
-		/// Uses the full three-type <see cref="CrustStateAppServiceBase{TEntity,TReadDto,TCreateDto,TUpdateDto}"/>
-		/// base rather than the Simple variant because ExampleA uses the canonical split DTO pattern:
-		/// <see cref="ExampleAReadDto"/> for reads (includes navigation DTO) and
-		/// <see cref="ExampleAWriteDto"/> for create/update (FK-only, no navigation).
-		/// </para>
-		/// <para>
-		/// The <see cref="IObjectMappingService"/> drives EF-optimized ProjectTo on reads
-		/// and Map on writes, keeping IQueryable composable at the API boundary.
-		/// </para>
-		/// </remarks>
-		public ExampleAApplicationService(
-			ICrustStateRepository<ExampleA> repository,
-			IObjectMappingService mapper,
-			IAppLogger logger)
-			: base(repository, mapper, logger)
-		{
-		}
-	}
+        : CrustStateAppServiceBase<ExampleA, ExampleAReadDto, ExampleAWriteDto, ExampleAWriteDto>,
+          IExampleAApplicationService
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExampleAApplicationService"/> class.
+        /// </summary>
+        /// <param name="repository">The ExampleA repository for CRUST persistence.</param>
+        /// <param name="mapper">The object mapping service for ProjectTo and Map.</param>
+        /// <param name="logger">Logger instance for diagnostics.</param>
+        /// <remarks>
+        /// <para>
+        /// Uses the full three-type <see cref="CrustStateAppServiceBase{TEntity,TReadDto,TCreateDto,TUpdateDto}"/>
+        /// base rather than the Simple variant because ExampleA uses the canonical split DTO pattern:
+        /// <see cref="ExampleAReadDto"/> for reads (includes navigation DTO) and
+        /// <see cref="ExampleAWriteDto"/> for create/update (FK-only, no navigation).
+        /// </para>
+        /// <para>
+        /// The <see cref="IObjectMappingService"/> drives EF-optimized ProjectTo on reads
+        /// and Map on writes, keeping IQueryable composable at the API boundary.
+        /// </para>
+        /// </remarks>
+        public ExampleAApplicationService(
+            ICrustStateRepository<ExampleA> repository,
+            IObjectMappingService mapper,
+            IAppLogger logger)
+            : base(repository, mapper, logger)
+        {
+        }
+    }
 }

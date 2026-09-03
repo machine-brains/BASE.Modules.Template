@@ -19,8 +19,8 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
     /// state management following our IQueryable-based repository patterns.
     /// </remarks>
     public class ExampleTypeApplicationService
-		: SimpleCrustStateAppServiceBase<ExampleType, ExampleTypeReadDto>, IExampleTypeApplicationService
-	{
+        : SimpleCrustStateAppServiceBase<ExampleType, ExampleTypeReadDto>, IExampleTypeApplicationService
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExampleTypeApplicationService"/> class.
         /// </summary>
@@ -32,11 +32,11 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
         /// which the 'secret sauce' to make IQUyerable work across the projections from DTO to entities.
         /// </remarks>  
         public ExampleTypeApplicationService(
-			ICrustStateRepository<ExampleType> repository,
-			IObjectMappingService mapper,
-			IAppLogger logger)
-			: base(repository, mapper, logger)
-		{
-		}
-	}
+            ICrustStateRepository<ExampleType> repository,
+            IObjectMappingService mapper,
+            IAppLogger logger)
+            : base(repository, mapper, logger)
+        {
+        }
+    }
 }

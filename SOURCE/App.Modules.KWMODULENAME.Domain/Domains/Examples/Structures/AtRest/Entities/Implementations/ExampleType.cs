@@ -2,18 +2,18 @@ using App.Modules.Sys.Shared.Models.Base;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations
 {
-	/// <summary>
-	/// Reference data entity that classifies <see cref="ExampleA"/> instances.
-	/// Many-to-one: each <see cref="ExampleA"/> has one <see cref="ExampleType"/>.
-	/// </summary>
-	/// <remarks>
-	/// Inherits from <see cref="DefaultReferenceDataEntityBase"/> which provides:
-	/// Id (Guid, auto-generated), Key, Value, Title, Description, Enabled,
-	/// ImageUrl, DisplayOrderHint, DisplayStyleHint, ReferenceDataType,
-	/// FromUtc/ToUtc, Timestamp, RecordState, and full audit fields.
-	/// </remarks>
-	public class ExampleType : DefaultReferenceDataEntityBase
-	{
+    /// <summary>
+    /// Reference data entity that classifies <see cref="ExampleA"/> instances.
+    /// Many-to-one: each <see cref="ExampleA"/> has one <see cref="ExampleType"/>.
+    /// </summary>
+    /// <remarks>
+    /// Inherits from <see cref="DefaultReferenceDataEntityBase"/> which provides:
+    /// Id (Guid, auto-generated), Key, Value, Title, Description, Enabled,
+    /// ImageUrl, DisplayOrderHint, DisplayStyleHint, ReferenceDataType,
+    /// FromUtc/ToUtc, Timestamp, RecordState, and full audit fields.
+    /// </remarks>
+    public class ExampleType : DefaultReferenceDataEntityBase
+    {
 
 
         // IMPORTANT:
@@ -28,5 +28,5 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Ent
         /// </summary>
         public int? EnumValue { get; set; }
 
-	}
+    }
 }
