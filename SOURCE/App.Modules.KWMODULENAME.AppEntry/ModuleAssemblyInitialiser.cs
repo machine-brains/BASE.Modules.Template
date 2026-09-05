@@ -1,5 +1,5 @@
 using System;
-using App.Modules.Sys.Initialisation.Implementation.Base;
+using App.Modules.Sys.Shared.Domains.Initialisation.Implementation.Base;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace App.Modules.KWMODULENAME.AppEntry

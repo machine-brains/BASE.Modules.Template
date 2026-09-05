@@ -1,4 +1,7 @@
-using App.Modules.Sys.Substrate.Infrastructure.Constants;
+using App.Modules.Sys.Shared.Domains.AccessControl.Constants;
+using App.Modules.Sys.Shared.Domains.Configuration.Constants;
+
+using App.Modules.Sys.Shared.Domains.Presentation.Constants;
 
 namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Constants
 {
@@ -14,7 +17,7 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Constants
     public static class ApiRoutes
     {
         private const string ModuleId = ModuleConstants.Key;
-        private const string RestModuleBase = ApiConstants.Root + "/" + ApiConstants.RestType + "/" + ModuleId;
+        private const string RestModuleBase = ApiConstants.RestPrefix + ModuleId;
 
         /// <summary>
         /// REST API routes for KWMODULENAME module.
@@ -26,7 +29,7 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Constants
             /// </summary>
             public static class V1
             {
-                private const string VersionBase = RestModuleBase + "/" + ApiConstants.Versions.V1;
+                private const string VersionBase = RestModuleBase + ApiConstants.RouteSeparator + ApiConstants.Versions.V1;
 
                 /// <summary>
                 /// Standard controller route template.

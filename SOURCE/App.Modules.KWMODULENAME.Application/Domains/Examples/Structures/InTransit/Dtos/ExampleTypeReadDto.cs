@@ -1,4 +1,4 @@
-using App.Modules.Sys.Shared.Models.Dtos;
+using App.Modules.Sys.Substrate.Domains.Models.Dtos;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos
 {

@@ -56,7 +56,7 @@
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure\App.Modules.KWMODULENAME.Infrastructure.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure.Persistence.EF\App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Application\App.Modules.KWMODULENAME.Application.csproj" />
-    <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.API.REST\App.Modules.KWMODULENAME.AppInterfaces.API.REST.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.AppInterfaces.API.REST\App.Modules.KWMODULENAME.AppInterfaces.API.REST.csproj" />
     <!-- Add UI.Web reference when that project is created -->
     <!-- <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.UI.Web\App.Modules.KWMODULENAME.Interface.UI.Web.csproj" /> -->
   </ItemGroup>

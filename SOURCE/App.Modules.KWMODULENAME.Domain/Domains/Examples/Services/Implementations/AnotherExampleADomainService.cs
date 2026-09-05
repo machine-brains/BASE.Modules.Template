@@ -1,7 +1,7 @@
 using System;
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Implementations;
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Constants;
-using App.Modules.Sys.Shared.Services.Attributes;
+using App.Modules.Sys.Shared.Domains.Services.Attributes;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Services.Implementations
 {

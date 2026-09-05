@@ -1,4 +1,4 @@
-using App.Modules.Sys.Infrastructure.Domains.Constants;
+using App.Modules.Sys.Substrate.Domains.Constants;
 
 namespace App.Modules.KWMODULENAME
 {
@@ -14,7 +14,7 @@ namespace App.Modules.KWMODULENAME
         public const string Name = "KWMODULENAME";
 
         /// <summary>
-        /// Unique Lowercase Key to use as name for DbSchema 
+        /// Unique Lowercase Key to use as name for DbSchema
         /// and api route fragment for this Logical Module.
         /// </summary>
         public const string Key = "kwmodulename";

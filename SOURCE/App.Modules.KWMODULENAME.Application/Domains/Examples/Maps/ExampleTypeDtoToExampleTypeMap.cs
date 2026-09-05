@@ -1,8 +1,8 @@
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos;
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
-using App.Modules.Sys.Shared.Models.Enums;
 using App.Modules.Sys.Shared.ObjectMaps.Models;
 using App.Modules.Sys.Shared.ObjectMaps.Models.Implementations.Base;
+using App.Modules.Sys.Substrate.Domains.Models.Enums;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
 {
@@ -50,7 +50,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
                 .MapImage()
                 .MapDisplayHint()
                 .MapKey()
-                .MapFrom(dest => dest.ReferenceDataType, src => (RecordMutabilityType)src.ReferenceDataType);
+                .MapFrom(dest => dest.RecordMutability, src => (RecordMutabilityType)src.ReferenceDataType);
         }
     }
 }

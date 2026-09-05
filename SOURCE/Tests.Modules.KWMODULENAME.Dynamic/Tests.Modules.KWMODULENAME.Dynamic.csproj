@@ -51,7 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.API.REST\App.Modules.KWMODULENAME.AppInterfaces.API.REST.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.AppInterfaces.API.REST\App.Modules.KWMODULENAME.AppInterfaces.API.REST.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Application\App.Modules.KWMODULENAME.Application.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Shared\App.Modules.KWMODULENAME.Shared.csproj" />
   </ItemGroup>

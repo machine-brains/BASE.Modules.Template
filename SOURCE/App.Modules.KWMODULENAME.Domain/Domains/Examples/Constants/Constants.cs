@@ -1,5 +1,8 @@
 using App.Modules.KWMODULENAME;
-using App.Modules.Sys.Shared.Constants;
+using App.Modules.Sys.Shared.Domains.Configuration.Constants;
+
+using App.Modules.Sys.Shared.Domains.Initialisation.Constants;
+using App.Modules.Sys.Shared.Domains.Sessions.Constants;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Constants
 {

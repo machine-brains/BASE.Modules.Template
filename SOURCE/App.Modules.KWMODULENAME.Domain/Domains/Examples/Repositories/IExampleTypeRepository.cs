@@ -1,5 +1,5 @@
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
-using App.Modules.Sys.Shared.Repositories;
+using App.Modules.Sys.Shared.Domains.Persistence.Repositories;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Repositories
 {
@@ -14,7 +14,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Repositories
     /// It will be implemented within Infrastructure.Persistence.EF,
     /// and injected into the Application Service contract
     /// </para>
-    /// </remarks>  
+    /// </remarks>
     public interface IExampleTypeRepository : ICrustStateRepository<ExampleType>
     {
     }

@@ -1,7 +1,7 @@
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
 using App.Modules.KWMODULENAME.Infrastructure.Constants;
 using App.Modules.Sys.Infrastructure.Domains.Persistence.Relational.EF.Schema;
-using App.Modules.Sys.Infrastructure.Persistence.EF.Schema.Extensions;
+using App;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

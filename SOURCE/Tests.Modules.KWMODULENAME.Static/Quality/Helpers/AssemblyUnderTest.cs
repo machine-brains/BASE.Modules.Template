@@ -39,7 +39,7 @@ namespace Tests.Modules.KWMODULENAME.Static.Quality.Helpers
 		/// Assemblies that belong to the Interface layer (REST, OData, GraphQL, Web).
 		/// </summary>
 		public static IReadOnlyList<Assembly> InterfaceAssemblies { get; } =
-			AllAssemblies.Where(a => GetName(a).Contains(".Interfaces")).ToList();
+			AllAssemblies.Where(a => GetName(a).Contains("Interfaces")).ToList();
 
 		/// <summary>
 		/// All public types (including interfaces and abstract) across all assemblies.

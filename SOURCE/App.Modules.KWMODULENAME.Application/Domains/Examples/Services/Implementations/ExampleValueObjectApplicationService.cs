@@ -1,6 +1,6 @@
 using App.Modules.Sys.Infrastructure.Services;
 using App.Modules.Sys.Application.Base;
-using App.Modules.Sys.Shared.Repositories;
+using App.Modules.Sys.Shared.Domains.Persistence.Repositories;
 using App.Modules.Sys.Shared.Domains.Diagnostics;
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos;
@@ -18,7 +18,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
     /// as it provides a standard set of CRUD operations with
     /// state management following our IQueryable-based repository patterns.
     /// </remarks>
-    public class ExampleValueObjectApplicationService
+    internal class ExampleValueObjectApplicationService
         : SimpleCrustStateAppServiceBase<ExampleValueObject, ExampleValueObjectReadDto>, IExampleValueObjectApplicationService
     {
         /// <summary>
@@ -30,7 +30,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
         /// for CRUST persistence, in a queryable way.
         /// Note also, that it is injected with the <see cref="IObjectMappingService"/> for ProjectTo and Map,
         /// which the 'secret sauce' to make IQUyerable work across the projections from DTO to entities.
-        /// </remarks>  
+        /// </remarks>
         public ExampleValueObjectApplicationService(
             ICrustStateRepository<ExampleValueObject> repository,
             IObjectMappingService mapper,

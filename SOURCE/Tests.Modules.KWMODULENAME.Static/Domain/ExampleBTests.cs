@@ -1,5 +1,5 @@
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
-using App.Modules.Sys.Shared.Domains.Indexes;
+using App.Modules.Sys.Substrate.Domains.Indexes;
 using Tests.Modules.KWMODULENAME.Static.Helpers;
 
 namespace Tests.Modules.KWMODULENAME.Static.Domain

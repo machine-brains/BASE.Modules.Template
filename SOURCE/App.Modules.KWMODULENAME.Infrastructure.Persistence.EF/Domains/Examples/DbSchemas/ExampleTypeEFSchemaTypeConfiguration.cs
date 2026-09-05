@@ -11,7 +11,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Configuration
     /// </summary>
     /// <remarks>
     /// Pattern: Table -> PK -> Contracts (in column order) -> Custom -> Timestamp/Audit.
-    /// Seed data is in <see cref="Seeding.ExampleEFTypeSeeder"/>.
+    /// Seed data is in <see cref="DbSeeders.ExampleEFTypeSeeder"/>.
     /// </remarks>
     public sealed class ExampleTypeEFSchemaTypeConfiguration : IEFSchemaTypeConfiguration<ExampleType>
     {

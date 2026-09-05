@@ -1,4 +1,4 @@
-using App.Modules.Sys.Shared.Models.Base;
+using App.Modules.Sys.Shared.Domains.Persistence.Models.Implementations.Base;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations
 {
@@ -17,7 +17,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Ent
 
 
         // IMPORTANT:
-        // NOte that the underlying Guid Id is derived from the original enum value, of type <see cref="Enums.ExampleTypeCode"/>, 
+        // NOte that the underlying Guid Id is derived from the original enum value, of type <see cref="Enums.ExampleTypeCode"/>,
         // using an enum/int to Guid conversion algorithm, so the EnumValue property is not strictly required to reconstruct the enum value from the Id.
         // This allows end users to add custom entries beyond the original enum values without needing to assign them an enum value (requiring rebuild),
         // while still preserving the ability to reconstruct the original enum value for seeded entries.

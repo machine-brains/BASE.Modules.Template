@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure.Persistence.EF\App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.csproj" />
-    <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.API.REST\App.Modules.KWMODULENAME.AppInterfaces.API.REST.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.AppInterfaces.API.REST\App.Modules.KWMODULENAME.AppInterfaces.API.REST.csproj" />
   </ItemGroup>
 
 </Project>

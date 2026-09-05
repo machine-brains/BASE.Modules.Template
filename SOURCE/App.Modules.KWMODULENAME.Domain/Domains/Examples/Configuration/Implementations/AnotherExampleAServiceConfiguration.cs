@@ -8,7 +8,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Impleme
     /// Service A implementation-specific configuration subtree.
     /// </summary>
     /// <remarks>
-    /// This type exists to show that an <see cref="App.Modules.Sys.Shared.Services.Configuration.IServiceConfiguration"/> can expose shared members through
+    /// This type exists to show that an <see cref="App.Modules.Sys.Shared.Domains.Configuration.Services.IServiceConfiguration"/> can expose shared members through
     /// an interface while also adding implementation-specific members beneath the same module configuration section.
     /// </remarks>
     public class AnotherExampleAServiceConfiguration : IAnotherExampleServiceConfiguration

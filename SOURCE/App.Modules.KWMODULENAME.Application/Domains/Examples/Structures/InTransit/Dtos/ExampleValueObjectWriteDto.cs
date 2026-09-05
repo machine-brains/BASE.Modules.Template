@@ -1,5 +1,5 @@
-using App.Modules.Sys.Shared.Models;
-using App.Modules.Sys.Shared.Models.Persistence;
+using App.Modules.Sys.Shared.Domains.Infrastructure.Models;
+using App.Modules.Sys.Shared.Domains.Persistence.Models;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos
 {

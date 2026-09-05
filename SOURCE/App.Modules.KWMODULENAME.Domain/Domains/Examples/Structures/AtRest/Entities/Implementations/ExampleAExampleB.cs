@@ -1,4 +1,4 @@
-using App.Modules.Sys.Shared.Models.Base;
+using App.Modules.Sys.Shared.Domains.Persistence.Models.Implementations.Base;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations
 {

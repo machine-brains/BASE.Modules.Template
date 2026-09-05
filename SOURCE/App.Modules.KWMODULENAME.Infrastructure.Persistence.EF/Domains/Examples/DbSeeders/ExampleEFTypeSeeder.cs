@@ -2,8 +2,8 @@ using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entitie
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Enums;
 using App.Modules.Sys.Infrastructure.Domains.Persistence.Relational.EF.Schema;
 using App.Modules.Sys.Infrastructure.Domains.Persistence.Relational.EF.Schema.Implementations;
-using App.Modules.Sys.Shared.Domains.Indexes;
-using App.Modules.Sys.Shared.Models.Enums;
+using App.Modules.Sys.Substrate.Domains.Indexes;
+using App.Modules.Sys.Substrate.Domains.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.DbSeeders

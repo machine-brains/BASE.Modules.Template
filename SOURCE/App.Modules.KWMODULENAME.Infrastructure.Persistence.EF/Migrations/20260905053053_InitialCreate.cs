@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
+namespace App.Modules.KWMODULENAME.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -72,9 +72,9 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                     Enabled = table.Column<bool>(type: "bit", nullable: false, defaultValue: true, comment: "Get/Set whether the entity is enabled or not."),
                     Title = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false, comment: "The (display) title."),
                     Description = table.Column<string>(type: "nvarchar(4000)", maxLength: 4000, nullable: true, comment: "The textual Description."),
-                    MediaType = table.Column<int>(type: "int", nullable: false, defaultValue: 0, comment: "Discriminator that declares which media source field is active (None, Font, Media)."),
-                    MediaFontKey = table.Column<string>(type: "varchar(200)", unicode: false, maxLength: 200, nullable: true, comment: "Font/icon key media source. Should be set only when MediaType is Font."),
-                    MediaContentFK = table.Column<Guid>(type: "uniqueidentifier", nullable: true, comment: "FK to MediaContent when MediaType is Media. Null otherwise."),
+                    MediaReferenceKind = table.Column<int>(type: "int", nullable: false, defaultValue: 0, comment: "Discriminator that declares which media source field is active (None, Font, Media)."),
+                    MediaFontKey = table.Column<string>(type: "varchar(200)", unicode: false, maxLength: 200, nullable: true, comment: "Font/icon key media source. Should be set only when MediaReferenceKind is Font."),
+                    MediaContentFK = table.Column<Guid>(type: "uniqueidentifier", nullable: true, comment: "FK to MediaContent when MediaReferenceKind is Media. Null otherwise."),
                     DisplayStyleHint = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true, comment: "A Hint on how to display the item. Consider using the field for a Classname that will mean something to the UX interface."),
                     DisplayOrderHint = table.Column<int>(type: "int", nullable: false, defaultValue: 0, comment: "A Hint to the Interface (UI/API) to organise item order on initial display. Non-unique. May be overridden by MRU settings."),
                     Value = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false, comment: "Stores the Value value for the Example Type record."),
@@ -84,19 +84,11 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                     SysEndTime = table.Column<DateTime>(type: "datetime2", nullable: false, comment: "Stores the Sys End Time value for the Example Type record.")
                         .Annotation("SqlServer:TemporalIsPeriodEndColumn", true),
                     SysStartTime = table.Column<DateTime>(type: "datetime2", nullable: false, comment: "Stores the Sys Start Time value for the Example Type record.")
-                        .Annotation("SqlServer:TemporalIsPeriodStartColumn", true),
-                    MediaFK = table.Column<Guid>(type: "uniqueidentifier", nullable: true, comment: "Foreign key to the Media record."),
-                    ImageId = table.Column<Guid>(type: "uniqueidentifier", nullable: true, comment: "Opaque identifier for the related Image aggregate.")
+                        .Annotation("SqlServer:TemporalIsPeriodStartColumn", true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ExampleTypes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ExampleTypes_MediaContents_ImageId",
-                        column: x => x.ImageId,
-                        principalSchema: "sys_core",
-                        principalTable: "MediaContents",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_ExampleTypes_MediaContents_MediaContentFK",
                         column: x => x.MediaContentFK,
@@ -246,34 +238,34 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
             migrationBuilder.InsertData(
                 schema: "kwmodulename_ref",
                 table: "ExampleTypes",
-                columns: new[] { "Id", "CreatedByPrincipalId", "CreatedOnUtc", "Description", "DisplayStyleHint", "EnumValue", "FromUtc", "ImageId", "Key", "LastModifiedByPrincipalId", "LastModifiedOnUtc", "MediaContentFK", "MediaFK", "MediaFontKey", "RecordMutability", "RecordState", "StateChangedByPrincipalId", "StateChangedOnDateTimeUtc", "Title", "ToUtc", "Value" },
-                values: new object[] { new Guid("00000000-0000-0000-0000-000000000000"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: Undefined.", null, 0, null, null, "Undefined", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, null, 4, 4, null, null, "Undefined", null, "Undefined" });
+                columns: new[] { "Id", "CreatedByPrincipalId", "CreatedOnUtc", "Description", "DisplayStyleHint", "EnumValue", "FromUtc", "Key", "LastModifiedByPrincipalId", "LastModifiedOnUtc", "MediaContentFK", "MediaFontKey", "RecordMutability", "RecordState", "StateChangedByPrincipalId", "StateChangedOnDateTimeUtc", "Title", "ToUtc", "Value" },
+                values: new object[] { new Guid("00000000-0000-0000-0000-000000000000"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: Undefined.", null, 0, null, "Undefined", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, 4, 4, null, null, "Undefined", null, "Undefined" });
 
             migrationBuilder.InsertData(
                 schema: "kwmodulename_ref",
                 table: "ExampleTypes",
-                columns: new[] { "Id", "CreatedByPrincipalId", "CreatedOnUtc", "Description", "DisplayOrderHint", "DisplayStyleHint", "Enabled", "EnumValue", "FromUtc", "ImageId", "Key", "LastModifiedByPrincipalId", "LastModifiedOnUtc", "MediaContentFK", "MediaFK", "MediaFontKey", "RecordMutability", "RecordState", "StateChangedByPrincipalId", "StateChangedOnDateTimeUtc", "Title", "ToUtc", "Value" },
-                values: new object[] { new Guid("00000000-0000-0000-0000-000000000001"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: NotApplicable.", 1, null, true, 1, null, null, "NotApplicable", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, null, 4, 4, null, null, "NotApplicable", null, "NotApplicable" });
+                columns: new[] { "Id", "CreatedByPrincipalId", "CreatedOnUtc", "Description", "DisplayOrderHint", "DisplayStyleHint", "Enabled", "EnumValue", "FromUtc", "Key", "LastModifiedByPrincipalId", "LastModifiedOnUtc", "MediaContentFK", "MediaFontKey", "RecordMutability", "RecordState", "StateChangedByPrincipalId", "StateChangedOnDateTimeUtc", "Title", "ToUtc", "Value" },
+                values: new object[] { new Guid("00000000-0000-0000-0000-000000000001"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: NotApplicable.", 1, null, true, 1, null, "NotApplicable", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, 4, 4, null, null, "NotApplicable", null, "NotApplicable" });
 
             migrationBuilder.InsertData(
                 schema: "kwmodulename_ref",
                 table: "ExampleTypes",
-                columns: new[] { "Id", "CreatedByPrincipalId", "CreatedOnUtc", "Description", "DisplayOrderHint", "DisplayStyleHint", "EnumValue", "FromUtc", "ImageId", "Key", "LastModifiedByPrincipalId", "LastModifiedOnUtc", "MediaContentFK", "MediaFK", "MediaFontKey", "RecordMutability", "RecordState", "StateChangedByPrincipalId", "StateChangedOnDateTimeUtc", "Title", "ToUtc", "Value" },
+                columns: new[] { "Id", "CreatedByPrincipalId", "CreatedOnUtc", "Description", "DisplayOrderHint", "DisplayStyleHint", "EnumValue", "FromUtc", "Key", "LastModifiedByPrincipalId", "LastModifiedOnUtc", "MediaContentFK", "MediaFontKey", "RecordMutability", "RecordState", "StateChangedByPrincipalId", "StateChangedOnDateTimeUtc", "Title", "ToUtc", "Value" },
                 values: new object[,]
                 {
-                    { new Guid("00000000-0000-0000-0000-000000000002"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: Unspecified.", 2, null, 2, null, null, "Unspecified", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, null, 4, 4, null, null, "Unspecified", null, "Unspecified" },
-                    { new Guid("00000000-0000-0000-0000-000000000003"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: Unknown.", 3, null, 3, null, null, "Unknown", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, null, 4, 4, null, null, "Unknown", null, "Unknown" }
+                    { new Guid("00000000-0000-0000-0000-000000000002"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: Unspecified.", 2, null, 2, null, "Unspecified", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, 4, 4, null, null, "Unspecified", null, "Unspecified" },
+                    { new Guid("00000000-0000-0000-0000-000000000003"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: Unknown.", 3, null, 3, null, "Unknown", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, 4, 4, null, null, "Unknown", null, "Unknown" }
                 });
 
             migrationBuilder.InsertData(
                 schema: "kwmodulename_ref",
                 table: "ExampleTypes",
-                columns: new[] { "Id", "CreatedByPrincipalId", "CreatedOnUtc", "Description", "DisplayOrderHint", "DisplayStyleHint", "Enabled", "EnumValue", "FromUtc", "ImageId", "Key", "LastModifiedByPrincipalId", "LastModifiedOnUtc", "MediaContentFK", "MediaFK", "MediaFontKey", "RecordMutability", "RecordState", "StateChangedByPrincipalId", "StateChangedOnDateTimeUtc", "Title", "ToUtc", "Value" },
+                columns: new[] { "Id", "CreatedByPrincipalId", "CreatedOnUtc", "Description", "DisplayOrderHint", "DisplayStyleHint", "Enabled", "EnumValue", "FromUtc", "Key", "LastModifiedByPrincipalId", "LastModifiedOnUtc", "MediaContentFK", "MediaFontKey", "RecordMutability", "RecordState", "StateChangedByPrincipalId", "StateChangedOnDateTimeUtc", "Title", "ToUtc", "Value" },
                 values: new object[,]
                 {
-                    { new Guid("00000000-0000-0000-0000-000000000004"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: General.", 4, null, true, 4, null, null, "General", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, null, 4, 4, null, null, "General", null, "General" },
-                    { new Guid("00000000-0000-0000-0000-000000000005"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: Specialised.", 5, null, true, 5, null, null, "Specialised", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, null, 4, 4, null, null, "Specialised", null, "Specialised" },
-                    { new Guid("00000000-0000-0000-0000-000000000006"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: Advanced.", 6, null, true, 6, null, null, "Advanced", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, null, 4, 4, null, null, "Advanced", null, "Advanced" }
+                    { new Guid("00000000-0000-0000-0000-000000000004"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: General.", 4, null, true, 4, null, "General", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, 4, 4, null, null, "General", null, "General" },
+                    { new Guid("00000000-0000-0000-0000-000000000005"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: Specialised.", 5, null, true, 5, null, "Specialised", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, 4, 4, null, null, "Specialised", null, "Specialised" },
+                    { new Guid("00000000-0000-0000-0000-000000000006"), "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Example type: Advanced.", 6, null, true, 6, null, "Advanced", "SYSTEM", new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), null, null, 4, 4, null, null, "Advanced", null, "Advanced" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -384,12 +376,6 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Persistence.EF.Migrations
                 table: "ExampleTypes",
                 column: "Id",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ExampleTypes_ImageId",
-                schema: "kwmodulename_ref",
-                table: "ExampleTypes",
-                column: "ImageId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ExampleTypes_RecordState",

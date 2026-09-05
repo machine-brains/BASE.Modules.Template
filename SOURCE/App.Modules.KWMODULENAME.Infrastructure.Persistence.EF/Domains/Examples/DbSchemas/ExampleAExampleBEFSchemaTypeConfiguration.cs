@@ -1,7 +1,7 @@
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
 using App.Modules.KWMODULENAME.Infrastructure.Constants;
 using App.Modules.Sys.Infrastructure.Domains.Persistence.Relational.EF.Schema;
-using App.Modules.Sys.Infrastructure.Persistence.EF.Schema.Extensions;
+using App;
 using App.Modules.Sys.Shared.Domains.Persistence.Relational.Constants.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -13,7 +13,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Configuration
     /// </summary>
     /// <remarks>
     /// Composite key (no surrogate Id) — audit columns inherited from
-    /// <see cref="Sys.Shared.Models.Base.DefaultNoneIdEntityBase"/>.
+    /// <see cref="App.Modules.Sys.Shared.Domains.Persistence.Models.Implementations.Base.DefaultNoneIdEntityBase"/>.
     /// <c>DefineExplicitJoinEntity</c> configures composite key, both FK relationships, and indexes.
     /// </remarks>
     public sealed class ExampleAExampleBEFSchemaTypeConfiguration : IEFSchemaTypeConfiguration<ExampleAExampleB>

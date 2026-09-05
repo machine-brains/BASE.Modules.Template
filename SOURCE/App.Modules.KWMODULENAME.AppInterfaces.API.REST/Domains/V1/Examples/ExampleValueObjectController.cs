@@ -1,34 +1,17 @@
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos;
 using App.Modules.KWMODULENAME.Interfaces.API.REST.Constants;
+using App.Modules.Sys.Shared.Domains.Presentation.Controllers;
 using App.Modules.Sys.Interfaces.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
 {
     /// <summary>
-    /// REST API controller for ExampleB operations.
-    /// Demonstrates a child entity controller with standard CRUST endpoints.
+    /// REST controller for <see cref="ExampleValueObjectReadDto"/> CRUST operations.
+    /// Provides: GET all, GET by id, POST, PUT, PATCH state, PATCH record-state.
     /// </summary>
     /// <remarks>
-    /// <para>
-    /// Inherits standard CRUST endpoints from
-    /// <see cref="CrudStateControllerBase{TReadDto,TCreateDto,TUpdateDto}"/>:
-    /// <list type="bullet">
-    ///   <item><c>GET</c> - all entities with OData query support.</item>
-    ///   <item><c>GET {id}</c> - single entity by identifier.</item>
-    ///   <item><c>GET by-key/{key}</c> - single entity by unique key.</item>
-    ///   <item><c>POST</c> - create a new entity.</item>
-    ///   <item><c>PUT {id}</c> - update an existing entity.</item>
-    ///   <item><c>PATCH {id}/state</c> - transition domain state.</item>
-    ///   <item><c>PATCH {id}/record-state</c> - transition persistence record state.</item>
-    /// </list>
-    /// </para>
-    /// <para>
-    /// ExampleB entities belong to an ExampleA parent.
-    /// OData provides filtering by parent, name, sort order, etc.
-    /// Global middleware enforces MaxTop - no unbounded queries.
-    /// </para>
     /// <para>
     /// IMPORTANT: It is *essential*
     /// that Routes and authentication/authorisation
@@ -46,14 +29,13 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
     /// <see cref="CrudStateControllerBase{TReadDto, TCreateDto, TUpdateDto}"/>
     /// </para>
     /// </remarks>
-    [Route(ApiRoutes.Rest.V1.ExampleBs.Base)]
-    public class ExampleBController : CrudStateControllerBase<ExampleBReadDto, ExampleBWriteDto, ExampleBWriteDto>
+    [Route(ApiRoutes.Rest.V1.ExampleValueObjects.Base)]
+    public class ExampleValueObjectController : SimpleCrudStateControllerBase<ExampleValueObjectReadDto>, IHasScopedController
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExampleBController"/> class.
+        /// Initializes a new instance of the <see cref="ExampleValueObjectController"/> class.
         /// </summary>
-        /// <param name="service">The ExampleB application service.</param>
-        public ExampleBController(IExampleBApplicationService service)
+        public ExampleValueObjectController(IExampleValueObjectApplicationService service)
             : base(service)
         {
             // IMPORTANT:
@@ -68,4 +50,3 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
         }
     }
 }
-

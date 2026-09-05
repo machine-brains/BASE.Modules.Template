@@ -1,5 +1,5 @@
-using App.Modules.Sys.Shared.Models;
-using App.Modules.Sys.Shared.Models.Base;
+using App.Modules.Sys.Shared.Domains.Persistence.Models.Implementations.Base;
+using App.Modules.Sys.Substrate.Domains.Models;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations
 {

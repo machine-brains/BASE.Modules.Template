@@ -3,7 +3,7 @@ using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entitie
 using App.Modules.Sys.Application.Base;
 using App.Modules.Sys.Infrastructure.Services;
 using App.Modules.Sys.Shared.Domains.Diagnostics;
-using App.Modules.Sys.Shared.Repositories;
+using App.Modules.Sys.Shared.Domains.Persistence.Repositories;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Implementations
 {
@@ -19,7 +19,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
     /// This provides a standard set of CRUD operations with state management following
     /// our IQueryable-based repository patterns.
     /// </remarks>
-    public class ExampleBApplicationService
+    internal class ExampleBApplicationService
         : CrustStateAppServiceBase<ExampleB, ExampleBReadDto, ExampleBWriteDto, ExampleBWriteDto>,
           IExampleBApplicationService
     {

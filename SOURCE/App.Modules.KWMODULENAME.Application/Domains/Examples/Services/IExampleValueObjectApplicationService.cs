@@ -1,5 +1,5 @@
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Structures.InTransit.Dtos;
-using App.Modules.Sys.Shared.Application;
+using App.Modules.Sys.Shared.Domains.Application;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services
 {

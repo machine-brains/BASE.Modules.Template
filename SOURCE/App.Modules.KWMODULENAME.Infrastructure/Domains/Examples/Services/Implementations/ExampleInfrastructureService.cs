@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using App.Modules.Sys.Shared.Domains.Infrastructure.Implementations;
-using App.Modules.Sys.Shared.Domains.Lifecycles;
+using App.Modules.Sys.Substrate.Infrastructure.Implementations;
+using App.Modules.Sys.Substrate.Domains.Lifecycles;
 
 namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Services.Implementations
 {
