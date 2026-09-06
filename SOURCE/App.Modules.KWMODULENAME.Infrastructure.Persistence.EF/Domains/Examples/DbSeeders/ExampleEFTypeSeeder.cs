@@ -1,10 +1,8 @@
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Entities.Implementations;
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Structures.AtRest.Enums;
-using App.Modules.Sys.Infrastructure.Domains.Persistence.Relational.EF.Schema;
-using App.Modules.Sys.Infrastructure.Domains.Persistence.Relational.EF.Schema.Implementations;
+using App.Modules.Sys.Shared.Domains.Initialisation.Services.Seeding;
 using App.Modules.Sys.Substrate.Domains.Indexes;
 using App.Modules.Sys.Substrate.Domains.Models.Enums;
-using Microsoft.EntityFrameworkCore;
 
 namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.DbSeeders
 {
@@ -13,15 +11,17 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.DbSeeders
     /// from the <see cref="ExampleTypeCode"/> enum.
     /// </summary>
     /// <remarks>
-    /// Discovered via reflection by <c>IModelBuilderOrchestrator</c>.
+    /// Discovered via reflection by <c>EntityDataSeederDbSeederInitialiser</c>.
     /// Each enum value gets a deterministic Guid via <see cref="DeterministicGuid.FromEnum{TEnum}"/>.
     /// End users may add custom entries beyond these built-in values.
     /// </remarks>
-    public sealed class ExampleEFTypeSeeder : EFDataSeederBase
+    public sealed class ExampleEFTypeSeeder : IEntityDataSeeder<ExampleType>
     {
         /// <inheritdoc />
-        public override void Seed(ModelBuilder modelBuilder)
+        public Task<IEnumerable<ExampleType>> GetSeedDeclarationsAsync(IServiceProvider serviceProvider)
         {
+            ArgumentNullException.ThrowIfNull(serviceProvider);
+
             List<ExampleType> entries = new List<ExampleType>();
             int order = 0;
 
@@ -46,7 +46,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.DbSeeders
                 });
             }
 
-            modelBuilder.Entity<ExampleType>().HasData(entries);
+            return Task.FromResult<IEnumerable<ExampleType>>(entries);
         }
     }
 }
